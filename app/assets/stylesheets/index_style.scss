@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 768px;
+	height: 1024px;
+}
+
+body {
+	width: 768px;
+	height: 1024px;
+	background: image-url("hexagon_bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	p {
+		width: 400px;
+		padding: 30px;
+		left: 154px;
+		font-family: "ヒラギノ角ゴ Pro W3";
+		font-size: 25px;
+		color: #fff;
+		background: rgba(33, 33, 33, 0.3);
+		border-radius: 10px;
+		position: absolute;
+		text-align: center;
+		top: 600px;
+	}
+}

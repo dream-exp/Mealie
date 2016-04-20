@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>mealie</title>
+  <%= stylesheet_link_tag "index_style" %>
+</head>
+<body>
+  <p class="skip">学生証をICカードリーダにタッチしてください</p>
+<%= render :template => 'layouts/_footer' %>
+<script type="text/javascript">
+  $(function(){
+    setInterval(function(){
+        $('p.skip').fadeOut(1000,function(){$(this).fadeIn(1000)});
+    },3000);
+});
+</script>

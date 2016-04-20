@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<%= stylesheet_link_tag "style" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<header>
+		<div>
+			<a href="#" onclick="javascript:window.history.back(-1);return false;">
+				<button class="vertical_middle" id="back">戻る</button>
+			</a>
+		</div>
+		<div>
+			<%= link_to image_tag('logo.png', :class => 'vertical_middle'), :controller => "logins", :action => "index" %>
+			<%= %>
+			</a>
+		</div>
+		<div>
+			<a href="tray.html">
+			<button class="vertical_middle circle" id="tray">
+			<span>2</span></button>
+			</a>
+			<a href="mypage.html">
+			<button class="vertical_middle circle" id="mypage"></button>
+			</a>
+		</div>
+	</header>
+	<div class="auth">
+		<div>
+		</div>
+	</div>
