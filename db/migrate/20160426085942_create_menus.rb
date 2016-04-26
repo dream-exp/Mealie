@@ -1,14 +1,13 @@
 class CreateMenus < ActiveRecord::Migration
   def change
     create_table :menus do |t|
-      t.string :food_name
-      t.string :food_url
-      t.string :image_url
-      t.integer :food_price
-      t.integer :calorie
+      t.string :name
+      t.integer :price
+      t.string :imageurl
+      t.integer :cal
       t.string :allergy
       t.integer :quantity
-      t.string :days
+      t.string :day
 
       t.timestamps null: false
     end
