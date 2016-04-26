@@ -1,0 +1,55 @@
+<%= render :template => 'layouts/_header' %>
+	<% menu = @menu %>
+	<div class="details">
+		<%= image_tag menu.imageurl%>
+		<div class="information">
+			<h3><%= menu.name %></h3>
+			<p><%= menu.price %>yen</p>
+			<table>
+				<tr>
+					<th style="border-right: solid 1px #D7D7D7">カロリー</th>
+					<th>アレルギー成分</th>
+				</tr>
+				<tr>
+					<td  style="border-right: solid 1px #D7D7D7"><%= menu.cal %>kcal</td>
+					<td><%= menu.allergy %></td>
+				</tr>
+				<tr>
+					<th  style="border-right: solid 1px #D7D7D7;border-top: solid 1px #D7D7D7;">残り個数</th>
+					<th style="border-top: solid 1px #D7D7D7;">発売曜日</th>
+				</tr>
+				<tr>
+					<td  style="border-right: solid 1px #D7D7D7"><%= menu.quantity %></td>
+					<td><%= menu.day %></td>
+				</tr>
+			</table>
+			<button class="reserve">トレーにのせる</button>
+		</div>
+	</div>
+
+	<div id="title">
+		<h3>他のメニュー</h3>
+	</div>
+
+	<div id="menus">
+		<% @menus.each do |menu| %>
+    <div class="menu">
+    	<%= link_to menus_path+'/'+menu.id.to_s do %>
+        <%= image_tag menu.imageurl%>
+      <% end %>
+      <div class="caption">
+        <div class="menu_top">
+          <h3 class="name"><%= menu.name %></h3> 
+          <p class="price"><%= menu.price %>yen</p>
+        </div>
+        <div class="menu_bottom">
+					<%= link_to menus_path+'/'+menu.id.to_s do %>
+            <button class="read_more">詳しく見る</button>
+          <% end %>
+          <button class="reserve">トレーに<br>のせる</button>
+        </div>
+      </div>
+    </div>
+    <% end %>
+	</div>
+<%= render :template => 'layouts/_footer' %>

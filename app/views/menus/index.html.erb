@@ -20,8 +20,9 @@
   <div id="menus">
     <% @menus.each do |menu| %>
     <div class="menu">
-      <a href="details.html">
+      <%= link_to menus_path+'/'+menu.id.to_s do %>
         <%= image_tag menu.imageurl%>
+      <% end %>
       </a>
       <div class="caption">
         <div class="menu_top">
@@ -29,9 +30,9 @@
           <p class="price"><%= menu.price %>yen</p>
         </div>
         <div class="menu_bottom">
-          <a href="details.html">
+          <%= link_to menus_path+'/'+menu.id.to_s do %>
             <button class="read_more">詳しく見る</button>
-          </a>
+          <% end %>
           <button class="reserve">トレーに<br>のせる</button>
         </div>
       </div>

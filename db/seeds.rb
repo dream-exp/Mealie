@@ -14,5 +14,10 @@
 # t.integer :quantity
 # t.string :day
 
-Menu.create(:name => '焼き肉', :price => 980, :imageurl => "http://dream-exp.net/develop/mealie/images/yakiniku.jpg", :cal => 1200, :allergy => "適当,に,入れる", :quantity => 29, :day => "月火水金")
-Menu.create(:name => '馬刺し', :price => 1200, :imageurl => "http://dream-exp.net/develop/mealie/images/yakiniku.jpg", :cal => 1000, :allergy => "適当,に,入れる", :quantity => 29, :day => "月金")
+Menu.create(:name => '焼き肉', :price => 3240, :imageurl => "yakiniku.jpg", :cal => 1100, :allergy => "なし", :quantity => 29, :day => "月火水金")
+Menu.create(:name => '馬刺し', :price => 834, :imageurl => "dummy/dream_exp_2015-10月-12.jpg", :cal => 800, :allergy => "なし", :quantity => 10, :day => "月火水木")
+Menu.create(:name => 'きしめん', :price => 450, :imageurl => "dummy/dream_exp_2015-10月-13.jpg", :cal => 700, :allergy => "小麦", :quantity => 15, :day => "月火水")
+Menu.create(:name => 'まぐろ', :price => 450, :imageurl => "dummy/dream_exp_2015-12月-18.jpg", :cal => 100, :allergy => "なし", :quantity => 12, :day => "月")
+Menu.create(:name => '鶏魚貝海鮮塩拉', :price => 650, :imageurl => "dummy/dream_exp_2016-2月-05.jpg", :cal => 900, :allergy => "小麦", :quantity => 5, :day => "水")
+Menu.create(:name => 'Cafe crowd ランチ', :price => 1300, :imageurl => "dummy/dream_exp_2016-2月-08.jpg", :cal => 1000, :allergy => "卵", :quantity => 20, :day => "木金")
+Menu.create(:name => '天下一品 こってり', :price => 650, :imageurl => "dummy/dream_exp_2016-2月-10.jpg", :cal => 1200, :allergy => "鶏", :quantity => 20, :day => "火")

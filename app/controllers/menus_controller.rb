@@ -8,6 +8,12 @@ class MenusController < ApplicationController
     render 'menus/index'
   end
 
+  def detail
+    @menus = Menu.all
+    @menu = Menu.find(params[:id])
+    render 'menus/detail'
+  end
+
   # # GET /menus/1
   # # GET /menus/1.json
   # def show
