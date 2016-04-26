@@ -21,3 +21,5 @@ Menu.create(:name => 'まぐろ', :price => 450, :imageurl => "dummy/dream_exp_2
 Menu.create(:name => '鶏魚貝海鮮塩拉', :price => 650, :imageurl => "dummy/dream_exp_2016-2月-05.jpg", :cal => 900, :allergy => "小麦", :quantity => 5, :day => "水")
 Menu.create(:name => 'Cafe crowd ランチ', :price => 1300, :imageurl => "dummy/dream_exp_2016-2月-08.jpg", :cal => 1000, :allergy => "卵", :quantity => 20, :day => "木金")
 Menu.create(:name => '天下一品 こってり', :price => 650, :imageurl => "dummy/dream_exp_2016-2月-10.jpg", :cal => 1200, :allergy => "鶏", :quantity => 20, :day => "火")
+Menu.create(:name => '牛タン朝定食', :price => 480, :imageurl => "dummy/dream_exp_2016-4月-10.jpg", :cal => 700, :allergy => "牛", :quantity => 5, :day => "金")
+
