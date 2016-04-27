@@ -148,6 +148,14 @@ div#title {
 		background-position: center center;
 		border: none;
 	}
+
+	button.search.close {
+		background: image-url("x_icon.png");
+		background-repeat: no-repeat;
+		background-size: 30px 30px;
+		background-position: center center;
+		border: none;
+	}
 }
 
 nav {
@@ -221,7 +229,10 @@ nav {
 		padding-bottom: 15px;
 		line-height: 50px;
 
-		li {
+		a {
+			text-decoration: none;
+			
+			li {
 			display: inline-block;
 			line-height: 30px;
 			margin-right: 6px;
@@ -236,6 +247,7 @@ nav {
 			background-position: 10px center;
 			background-repeat: no-repeat;
 			border-radius: 2px;
+		}
 		}
 	}
 }

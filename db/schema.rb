@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160426085942) do
   create_table "menus", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
+    t.string   "category"
     t.string   "imageurl"
     t.integer  "cal"
     t.string   "allergy"

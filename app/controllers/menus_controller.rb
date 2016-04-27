@@ -4,6 +4,7 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
+    @uniq = Menu.select(:category).uniq
     @menus = Menu.all
     render 'menus/index'
   end
@@ -12,6 +13,13 @@ class MenusController < ApplicationController
     @menus = Menu.all
     @menu = Menu.find(params[:id])
     render 'menus/detail'
+  end
+
+  def category
+    @uniq = Menu.select(:category).uniq
+    @menus = Menu.where(category: params[:category])
+    @category_name = params[:category]
+    render 'menus/category'
   end
 
   # # GET /menus/1

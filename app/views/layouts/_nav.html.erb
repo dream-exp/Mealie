@@ -1,0 +1,13 @@
+<nav>
+  <h4>料理名で検索</h4>
+  <input type="text" class="food_name" placeholder="例：カレー、うどん">
+  <button class="name_search">料理名で検索</button>
+  <h4 class="2nd">カテゴリー から選ぶ</h4>
+  <div class="categories">
+    <% @uniq.each do |menu| %>
+      <%= link_to menus_path+'/'+menu.category, :category => menu.category do %>
+        <li><%= menu.category %></li>
+      <% end %>
+    <% end %>
+  </div>
+</nav>

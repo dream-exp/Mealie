@@ -14,13 +14,15 @@ $('button.search').click(function() {
 
 	if(menuTgl == false) {
 		$('nav').show(150);
-		$('button.search').css('background-image', 'url(images/x_icon.png)');
+		$(this).toggleClass('close');
+		// $('button.search').css('background-image', 'url(images/x_icon.png)');
 		$('#menus').css('opacity', '0.2');
 		//$('header').css('position', 'static');
 		menuTgl = true;
 	} else {
 		$('nav').hide(200);
-		$('button.search').css('background-image', 'url(images/search_icon.png)');
+		$(this).toggleClass('close');
+		// $('button.search').css('background-image', 'url(images/search_icon.png)');
 		$('#menus').css('opacity', '1.0')
 		//$('header').css('position', 'fixed');
 		menuTgl = false;
@@ -30,7 +32,8 @@ $('button.search').click(function() {
 $('#menus').click(function() {
 	if(menuTgl == true) {
 		$('nav').hide(200);
-		$('button.search').css('background-image', 'url(images/search_icon.png)');
+		$('button.search').toggleClass('close');
+		// $('button.search').css('background-image', 'url(images/search_icon.png)');
 		$('#menus').css('opacity', '1.0')
 		//$('header').css('position', 'fixed');
 		menuTgl = false;

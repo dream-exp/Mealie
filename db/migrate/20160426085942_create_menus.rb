@@ -3,6 +3,7 @@ class CreateMenus < ActiveRecord::Migration
     create_table :menus do |t|
       t.string :name
       t.integer :price
+      t.string :category
       t.string :imageurl
       t.integer :cal
       t.string :allergy
