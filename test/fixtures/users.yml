@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_number: 1
+  card_id: MyString
+  not_pay: 1
+
+two:
+  student_number: 1
+  card_id: MyString
+  not_pay: 1

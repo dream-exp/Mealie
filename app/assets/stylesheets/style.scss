@@ -510,24 +510,36 @@ div#orders {
 	table {
 		width: 100%;
 		border-collapse: collapse;
-
-		th {
-			text-align: left;
+		
+		tr#header {
+			width: 728px;
 			padding-left: 20px;
+			padding-right: 20px;
 		}
 
+		th {
+			text-align: center;
+		}
+
+
 		th#menu_name {
-			width: 230px;
+			width: calc(728 * 0.55);
+			padding-left: 20px;
+			text-align: left;
 		}
 
 		th#price {
-			width: 230px;
+			width: calc(728 * 0.15);
+		}
+
+		th#status {
+			width: calc(728 * 0.15);
 		}
 		
 		th#delete {
-			width: 10%;
-			text-align: right;
-			padding-right: 53px;
+			width: calc(728 * 0.15);
+			text-align: center;
+			padding-right: 20px;
 		}
 
 		tr {
@@ -535,13 +547,15 @@ div#orders {
 			font-size: 18px;
 
 			td {
-				text-align: left;
+				text-align: center;
 
 				button {
 					left: 0;
 					width: 100%;
 					height: 50px;
 					border: none;
+					display: block;
+					margin: 0 auto;
 					background: #C21628;
 					border-radius: 3px;
 					border-bottom: solid 2px #373737;
@@ -551,15 +565,12 @@ div#orders {
 			}
 
 			td.menu_name {
-				width: 30%;
 				padding-left: 20px;
+				font-weight: bold;
+				text-align: left;
 			}
 
-			td:nth-child(2) {
-				width: 30%;
-			}
-
-			td:nth-child(3) {
+			td:nth-child(4) {
 				padding-right: 20px;
 			}
 		}
