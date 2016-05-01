@@ -26,7 +26,11 @@
 			<%= order.price %>円
 			</td>
 			<td class="status"><%= order.status %></td>
-			<td class="button"><button>削除</button></td>
+			<td class="button">
+			<%= link_to '/removetray/'+order.id.to_s, :id => order.id do %>
+			<button>削除</button>
+			<% end %>
+			</td>
 		</tr>
 		<% end %>
 	</table>

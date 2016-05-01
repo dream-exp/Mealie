@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/mypage/:student_number', to: 'users#index'
 
+  get '/removetray/:id', controller: 'menus', action: 'removetray'
+
   resources :logins do
     get 'index'
   end
