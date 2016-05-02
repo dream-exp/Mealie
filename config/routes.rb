@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/menus/:category/:id', to: 'menus#detail'
 
   get '/mypage/:student_number', to: 'users#index'
+  get '/tray/:student_number', to: 'users#tray'
 
   get '/orders/new/:id', to: 'orders#new'
   get '/orders/destroy/:id', to: 'orders#destroy'

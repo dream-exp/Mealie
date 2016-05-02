@@ -16,11 +16,11 @@
 			<%= link_to image_tag('logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
 		</div>
 		<div>
-			<a href="tray.html">
+			<%= link_to '/tray/12209', :student_number => 12209 do %>
 			<button class="vertical_middle circle" id="tray">
-			<span>2</span></button>
-			</a>
-			<%= link_to 'http://localhost:3000/mypage/12209', :student_number => 12209 do %>
+			<span><%= Order.where(student_number: 12209).where(created_at: Time.zone.now.all_day).where(:status => '予約受付').count %></span></button>
+			<% end %>
+			<%= link_to '/mypage/12209', :student_number => 12209 do %>
 			<button class="vertical_middle circle" id="mypage"></button>
 			<% end %>
 		</div>
