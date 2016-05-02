@@ -18,7 +18,11 @@
 		<div>
 			<%= link_to '/tray/12209', :student_number => 12209 do %>
 			<button class="vertical_middle circle" id="tray">
-			<span><%= Order.where(student_number: 12209).where(created_at: Time.zone.now.all_day).where(:status => '予約受付').count %></span></button>
+			<% q = Order.where(student_number: 12209).where(created_at: Time.zone.now.all_day).where(:status => '予約受付').count %>
+			<% if q != 0 %>
+				<span><%= Order.where(student_number: 12209).where(created_at: Time.zone.now.all_day).where(:status => '予約受付').count %></span>
+			<% end %>
+			</button>
 			<% end %>
 			<%= link_to '/mypage/12209', :student_number => 12209 do %>
 			<button class="vertical_middle circle" id="mypage"></button>

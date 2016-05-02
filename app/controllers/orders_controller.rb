@@ -14,4 +14,9 @@ class OrdersController < ApplicationController
     redirect_to controller: 'users', action: 'index', student_number: 12209 #一時的に12209にしてある
   end
 
+  def destroyall
+    Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).destroy_all
+    redirect_to controller: 'users', action: 'index', student_number: 12209 #一時的に12209にしてある
+  end
+
 end

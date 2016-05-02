@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/orders/new/:id', to: 'orders#new'
   get '/orders/destroy/:id', to: 'orders#destroy'
+  get '/orders/destroyall/:student_number', to: 'orders#destroyall'
 
   resources :logins do
     get 'index'

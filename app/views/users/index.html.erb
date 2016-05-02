@@ -34,17 +34,17 @@
 		</tr>
 		<% end %>
 	</table>
+	<% if Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).count == 0 %>
+			<p class="not_order">今日の注文はありません</p>
+		<% end %>
 	</div>
-	<div id="buttons">
-		<button id="all_delete">トレーの中身をクリアする</button>
-		<button id="submit">この内容で予約する</button>
-	</div>
-	<!-- <div id="mypage_content">
+
+	<div id="mypage_content">
 		<a href="tray.html">
 			<button id="reserve_info"><p>トレーの確認</p>
 			</button>
 		</a>
 		<button id="history"><p>注文履歴</p></button>
 		<button class="logout">ログアウトする</button>
-	</div> -->
+	</div>
 <%= render :template => 'layouts/_footer' %>
