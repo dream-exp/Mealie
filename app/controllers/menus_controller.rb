@@ -22,12 +22,6 @@ class MenusController < ApplicationController
     render 'menus/category'
   end
 
-  def removetray
-    @order = Order.find(params[:id])
-    @order.destroy
-    render 'logins/index'
-  end
-
   # # GET /menus/1
   # # GET /menus/1.json
   # def show
