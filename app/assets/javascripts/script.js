@@ -13,14 +13,14 @@ $('button.search').click(function() {
 	console.log("click");
 
 	if(menuTgl == false) {
-		$('nav').show(150);
+		$('nav').slideDown(150);
 		$(this).toggleClass('close');
 		// $('button.search').css('background-image', 'url(images/x_icon.png)');
 		$('#menus').css('opacity', '0.2');
 		//$('header').css('position', 'static');
 		menuTgl = true;
 	} else {
-		$('nav').hide(200);
+		$('nav').slideUp(200);
 		$(this).toggleClass('close');
 		// $('button.search').css('background-image', 'url(images/search_icon.png)');
 		$('#menus').css('opacity', '1.0')
@@ -31,7 +31,7 @@ $('button.search').click(function() {
 
 $('#menus').click(function() {
 	if(menuTgl == true) {
-		$('nav').hide(200);
+		$('nav').slideUp(200);
 		$('button.search').toggleClass('close');
 		// $('button.search').css('background-image', 'url(images/search_icon.png)');
 		$('#menus').css('opacity', '1.0')
