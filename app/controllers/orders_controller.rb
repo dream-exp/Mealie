@@ -19,12 +19,12 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to controller: 'users', action: 'index', student_number: 12209 #一時的に12209にしてある
+    redirect_to controller: 'users', action: 'index', student_number: ActiveUser.first.student_number
   end
 
   def destroyall
-    Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).destroy_all
-    redirect_to controller: 'users', action: 'tray', student_number: 12209 #一時的に12209にしてある
+    Order.where(student_number: params[:student_number]).where(created_at: Time.now.all_day).where(status: 'トレー上').destroy_all
+    redirect_to controller: 'users', action: 'tray', student_number: ActiveUser.first.student_number
   end
 
 end
