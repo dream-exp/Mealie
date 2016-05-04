@@ -360,6 +360,25 @@ div#menus {
 	}
 }
 
+div.margin {
+	clear: both;
+	width: 768px;
+	margin-bottom: 110px;
+}
+
+button.finish {
+	width: 768px;
+	height: 80px;
+	border: none;
+	border-bottom: solid 3px #373737;
+	background: #D40902;
+	font-size: 18px;
+	color: #fff;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+}
+
 //for details.erb 
 
 div.details {
@@ -422,7 +441,7 @@ div.details {
 			height: 50px;
 			color: #fff;
 			font-size: 18px;
-			background-color: #1E86BE;
+			background-color: #0D9CB7;
 			border: none;
 			border-bottom: solid 2px #373737;
 			border-radius: 2px;

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<% @student_number = ActiveUser.first.student_number %>
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
@@ -16,15 +17,15 @@
 			<%= link_to image_tag('logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
 		</div>
 		<div>
-			<%= link_to '/tray/12209', :student_number => 12209 do %>
+			<%= link_to '/tray/'+@student_number.to_s, :student_number => @student_number do %>
 			<button class="vertical_middle circle" id="tray">
-			<% q = Order.where(student_number: 12209).where(created_at: Time.zone.now.all_day).where(:status => '予約受付').count %>
+			<% q = Order.where(student_number: @student_number).where(created_at: Time.zone.now.all_day).where(:status => 'トレー上').count %>
 			<% if q != 0 %>
-				<span><%= Order.where(student_number: 12209).where(created_at: Time.zone.now.all_day).where(:status => '予約受付').count %></span>
+				<span><%= Order.where(student_number: @student_number).where(created_at: Time.zone.now.all_day).where(:status => 'トレー上').count %></span>
 			<% end %>
 			</button>
 			<% end %>
-			<%= link_to '/mypage/12209', :student_number => 12209 do %>
+			<%= link_to '/mypage/'+@student_number.to_s, :student_number => @student_number do %>
 			<button class="vertical_middle circle" id="mypage"></button>
 			<% end %>
 		</div>

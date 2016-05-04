@@ -4,6 +4,7 @@ class LoginsController < ApplicationController
   # GET /logins
   # GET /logins.json
   def index
+    ActiveUser.first.update({:student_number => 12210})
     @logins = Login.all
   end
 

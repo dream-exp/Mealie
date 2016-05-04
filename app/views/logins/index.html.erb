@@ -7,8 +7,9 @@
 </head>
 <body>
   <p class="skip">学生証をICカードリーダにタッチしてください</p>
-
-<%= render :template => 'layouts/_footer' %>
+</body>
+<%= javascript_include_tag "jquery-1.5.1.min" %>
+<%= javascript_include_tag "script" %>
 <script type="text/javascript">
   $(function(){
     setInterval(function(){
@@ -16,3 +17,4 @@
     },3000);
 });
 </script>
+</html>

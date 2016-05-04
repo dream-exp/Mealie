@@ -1,8 +1,16 @@
 class OrdersController < ApplicationController
 
   def new
-    @order = Order.new({:student_number => 12209, :menu_id => params[:id], :menu_name => Menu.find(params[:id]).name, :price => Menu.find(params[:id]).price, :status => '予約受付'})
+    @order = Order.new({:student_number => 12209, :menu_id => params[:id], :menu_name => Menu.find(params[:id]).name, :price => Menu.find(params[:id]).price, :status => 'トレー上'})
     @order.save
+    redirect_to controller: 'menus', action: 'index'
+  end
+
+  def confirm
+    @orders = Order.where(student_number: params[:student_number]).where(created_at: Time.now.all_day).where(status: 'トレー上')
+    @orders.each do |order|
+      order.update({:status => '予約注文完了'})
+    end
     redirect_to controller: 'menus', action: 'index'
   end
 
@@ -16,7 +24,7 @@ class OrdersController < ApplicationController
 
   def destroyall
     Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).destroy_all
-    redirect_to controller: 'users', action: 'index', student_number: 12209 #一時的に12209にしてある
+    redirect_to controller: 'users', action: 'tray', student_number: 12209 #一時的に12209にしてある
   end
 
 end

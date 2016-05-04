@@ -1,5 +1,6 @@
 <%= render :template => 'layouts/_header' %>
 	<% @user.each do |user| %>
+	<% $student_number = user.student_number %>
 	<div id="mypage_header">
 		<h4>学籍番号：<span id="student_number"><%= user.student_number %></span></h4>
 	</div>
@@ -27,8 +28,10 @@
 			</td>
 			<td class="status"><%= order.status %></td>
 			<td class="button">
-			<%= link_to '/orders/destroy/'+order.id.to_s, :id => order.id do %>
-			<button>削除</button>
+			<% if order.status == 'トレー上' %>
+				<%= link_to '/orders/destroy/'+order.id.to_s, :id => order.id do %>
+				<button>削除</button>
+				<% end %>
 			<% end %>
 			</td>
 		</tr>
@@ -40,11 +43,12 @@
 	</div>
 
 	<div id="mypage_content">
-		<a href="tray.html">
+		<%= link_to '/tray/'+$student_number.to_s , :student_number => $student_number do %>
 			<button id="reserve_info"><p>トレーの確認</p>
 			</button>
-		</a>
+		<% end %>
+		<%= link_to '/past_order/'+$student_number.to_s, :student_number => $student_number do %>
 		<button id="history"><p>注文履歴</p></button>
-		<button class="logout">ログアウトする</button>
+		<% end %>
 	</div>
 <%= render :template => 'layouts/_footer' %>

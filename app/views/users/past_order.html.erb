@@ -7,19 +7,22 @@
 	<% end %>
 
 	<div id="title">
-		<h3>トレー</h3>
+		<h3>注文履歴</h3>
 	</div>
 
 	<div id="orders">
 	<table>
 		<tr id="header">
+			<th id="date">日付</th>
 			<th id="menu_name">メニュー名</th>
 			<th id="price">価格</th>
 			<th id="status">ステータス</th>
-			<th id="delete">削除</th>
 		</tr>
 		<% @order.each do |order| %>
 		<tr>
+			<td class="date">
+			<%= order.created_at.strftime("%Y年%m月%d日 %H時%M分")  %>
+			</td>
 			<td class="menu_name">
 			<%= order.menu_name %>
 			</td>
@@ -27,28 +30,13 @@
 			<%= order.price %>円
 			</td>
 			<td class="status"><%= order.status %></td>
-			<td class="button">
-			<%= link_to '/orders/destroy/'+order.id.to_s, :id => order.id do %>
-			<button>削除</button>
-			<% end %>
-			</td>
 		</tr>
 		<% end %>
 	</table>
-	<% if ($q = Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).where(status: 'トレー上').count) == 0 %>
-			<p class="not_order">トレーに載っている注文はありません</p>
+	<% if Order.where(student_number: params[:student_number]).count == 0 %>
+			<p class="not_order">過去の注文はありません</p>
 		<% end %>
 	</div>
-	<% if $q != 0 %>
-	<div id="buttons">
-		<%= link_to '/orders/destroyall/'+$student_number.to_s, :student_number => $student_number do %>
-		<button id="all_delete">トレーの中身をクリアする</button>
-		<% end %>
-		<%= link_to '/orders/confirm/'+$student_number.to_s, :student_number => $student_number do %>
-		<button id="submit">この内容で予約を確定する</button>
-		<% end %>
-	</div>
-	<% end %>
 	<!-- <div id="mypage_content">
 		<a href="tray.html">
 			<button id="reserve_info"><p>トレーの確認</p>

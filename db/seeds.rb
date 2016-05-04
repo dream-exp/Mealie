@@ -26,6 +26,8 @@ Menu.create(:name => '牛タン朝定食', :price => 480, :category => "定食",
 User.create(:student_number => 12209, :card_id => "1145141919810", :orderarray => ["aaaaa", "bbbbb"], :not_pay => 810)
 User.create(:student_number => 12210, :card_id => "1145141919893", :orderarray => ["ccccc", "ddddd"], :not_pay => 893)
 
-Order.create(:student_number => 12209, :menu_id => 2, :menu_name => '焼き肉', :price => 3240, :status => '予約受付')
+Order.create(:student_number => 12209, :menu_id => 2, :menu_name => '焼き肉', :price => 3240, :status => 'トレー上')
 Order.create(:student_number => 12209, :menu_id => 4,  :menu_name => '馬刺し', :price => 834, :status => '支払い済み')
-Order.create(:student_number => 12210, :menu_id => 1, :menu_name => '牛タン朝定食', :price => 480, :status => '予約受付')
+Order.create(:student_number => 12210, :menu_id => 1, :menu_name => '牛タン朝定食', :price => 480, :status => 'トレー上')
+
+ActiveUser.create(:student_number => 12209)
