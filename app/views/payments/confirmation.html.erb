@@ -1,0 +1,58 @@
+<% $sum = 0 %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<%= stylesheet_link_tag "payments" %>
+	<title>Mealie</title>
+</head>
+<body>
+<header>
+		<%= link_to image_tag('mealie_payment_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
+	</header>
+<div id="mypage_header">
+		<h4>学籍番号：<span id="student_number"><%= @student_number %></span></h4>
+	</div>
+
+	<div id="title">
+		<h3>注文内容をご確認ください</h3>
+	</div>
+
+	<div id="orders">
+	<table>
+		<tr id="header">
+			<th id="date">日付</th>
+			<th id="menu_name">メニュー名</th>
+			<th id="price">価格</th>
+			<th id="status">ステータス</th>
+		</tr>
+		<% @order.each do |order| %>
+		<tr>
+			<td class="date">
+			<%= order.created_at.strftime("%Y年%m月%d日 %H時%M分")  %>
+			</td>
+			<td class="menu_name">
+			<%= order.menu_name %>
+			</td>
+			<td class="price">
+			<% $sum = $sum + order.price %>
+			<%= order.price %>円
+			</td>
+			<td class="status"><%= order.status %></td>
+		</tr>
+		<% end %>
+	</table>
+	<% if @order = Order.where(student_number: params[:student_number]).where(created_at: Time.now.all_day).where(:status => '予約注文完了').count == 0 %>
+			<p class="not_order">注文がありません</p>
+	<% end %>
+	<p class="sum_price">
+		合計：<%= $sum %>円 (税込)
+	</p>
+	<%= link_to '/payments/pay/'+params[:student_number].to_s , :student_number => params[:student_number], :sum => $sum do %>
+	<button id="submit">
+		注文を確定してお支払いへ
+	</button>
+	<% end %>
+	</div>
+</body>
+</html>

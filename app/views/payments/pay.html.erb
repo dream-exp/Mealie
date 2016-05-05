@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="refresh" content="8; url=/payments">
+	<%= stylesheet_link_tag "payments" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<% payments_path + '/index' %>
+	<header>
+		<%= link_to image_tag('mealie_payment_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
+	</header>
+	<p id="result">ご購入ありがとうございます。<br><b><%= @sum %>円</b>をレジにてお支払いください。</p>
+</body>
+</html>

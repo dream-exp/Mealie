@@ -607,6 +607,17 @@ div#orders {
 		}
 	}
 
+	p.sum_price {
+		border-top: dashed 1px;
+		width: 748px;
+		text-align: right;
+		font-size: 23px;
+		font-weight: bold;
+		padding-right: 20px;
+		padding-top: 10px;
+		color: #373737;
+	}
+
 	p.not_order {
 		font-size: 22px;
 		font-weight: bold;

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get '/logins', to: 'logins#index'
 
 	get '/menus', to: 'menus#index'
@@ -15,6 +16,9 @@ Rails.application.routes.draw do
   get '/orders/destroy/:id', to: 'orders#destroy'
   get '/orders/destroyall/:student_number', to: 'orders#destroyall'
 
+  get '/payments', to: 'payments#index'
+  get '/payments/confirmation/:student_number', to: 'payments#confirmation'
+  get '/payments/pay/:student_number', to: 'payments#pay'
   # resources :menus do
   # 	member do
   # 		get 'detail'

@@ -1,10 +1,8 @@
+<% $sum = 0 %>
 <%= render :template => 'layouts/_header' %>
-	<% @user.each do |user| %>
-	<% $student_number = user.student_number %>
 	<div id="mypage_header">
-		<h4>学籍番号：<span id="student_number"><%= user.student_number %></span></h4>
+		<h4>学籍番号：<span id="student_number"><%= ActiveUser.first.student_number %></span></h4>
 	</div>
-	<% end %>
 
 	<div id="title">
 		<h3>トレー</h3>
@@ -25,6 +23,7 @@
 			</td>
 			<td class="price">
 			<%= order.price %>円
+			<% $sum = $sum + order.price %>
 			</td>
 			<td class="status"><%= order.status %></td>
 			<td class="button">
@@ -37,14 +36,18 @@
 	</table>
 	<% if ($q = Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).where(status: 'トレー上').count) == 0 %>
 			<p class="not_order">トレーに載っている注文はありません</p>
-		<% end %>
+	<% else %>
+	<p class="sum_price">
+		合計：<%= $sum %>円 (税込)
+	</p>
+	<% end %>
 	</div>
 	<% if $q != 0 %>
 	<div id="buttons">
-		<%= link_to '/orders/destroyall/'+$student_number.to_s, :student_number => $student_number do %>
+		<%= link_to '/orders/destroyall/'+ActiveUser.first.student_number.to_s, :student_number =>ActiveUser.first.student_number do %>
 		<button id="all_delete">トレーの中身をクリアする</button>
 		<% end %>
-		<%= link_to '/orders/confirm/'+$student_number.to_s, :student_number => $student_number do %>
+		<%= link_to '/orders/confirm/'+ActiveUser.first.student_number.to_s, :student_number => ActiveUser.first.student_number do %>
 		<button id="submit">この内容で予約を確定する</button>
 		<% end %>
 	</div>

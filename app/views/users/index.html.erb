@@ -43,11 +43,11 @@
 	</div>
 
 	<div id="mypage_content">
-		<%= link_to '/tray/'+$student_number.to_s , :student_number => $student_number do %>
+		<%= link_to '/tray/'+ActiveUser.first.student_number.to_s , :student_number => ActiveUser.first.student_number do %>
 			<button id="reserve_info"><p>トレーの確認</p>
 			</button>
 		<% end %>
-		<%= link_to '/past_order/'+$student_number.to_s, :student_number => $student_number do %>
+		<%= link_to '/past_order/'+ActiveUser.first.student_number.to_s, :student_number => ActiveUser.first.student_number do %>
 		<button id="history"><p>注文履歴</p></button>
 		<% end %>
 	</div>

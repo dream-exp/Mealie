@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def new
-    @order = Order.new({:student_number => 12209, :menu_id => params[:id], :menu_name => Menu.find(params[:id]).name, :price => Menu.find(params[:id]).price, :status => 'トレー上'})
+    @order = Order.new({:student_number => ActiveUser.first.student_number, :menu_id => params[:id], :menu_name => Menu.find(params[:id]).name, :price => Menu.find(params[:id]).price, :status => 'トレー上'})
     @order.save
     redirect_to controller: 'menus', action: 'index'
   end
@@ -19,7 +19,11 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to controller: 'users', action: 'index', student_number: ActiveUser.first.student_number
+    if params[:action] == 'tray'
+      redirect_to controller: 'users', action: 'tray', student_number: ActiveUser.first.student_number
+    else
+      redirect_to controller: 'users', action: 'index', student_number: ActiveUser.first.student_number
+    end
   end
 
   def destroyall

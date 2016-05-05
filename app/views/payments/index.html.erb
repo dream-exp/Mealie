@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<%= stylesheet_link_tag "payments" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<header>
+		<%= link_to image_tag('mealie_payment_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
+	</header>
+	<%= link_to image_tag('touch.png', :class => 'vertical_middle') %>
+	<p>FeliCaリーダに学生証をタッチしてください</p>
+</body>
+</html>
