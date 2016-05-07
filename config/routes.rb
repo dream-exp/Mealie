@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'control/administration'
+
   get '/logins', to: 'logins#index'
 
 	get '/menus', to: 'menus#index'
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   get '/payments', to: 'payments#index'
   get '/payments/confirmation/:student_number', to: 'payments#confirmation'
   get '/payments/pay/:student_number', to: 'payments#pay'
+
+  get '/administration', to: 'administration#index'
   # resources :menus do
   # 	member do
   # 		get 'detail'

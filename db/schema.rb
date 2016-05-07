@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20160504185623) do
     t.string   "allergy"
     t.integer  "quantity"
     t.string   "day"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "page_view"
+    t.integer  "purchase_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "orders", force: :cascade do |t|

@@ -23,8 +23,12 @@
 					<td><%= menu.day %></td>
 				</tr>
 			</table>
-			<%= link_to '/orders/new/'+menu.id.to_s, :id => menu.id do %>
-			<button class="reserve">トレーにのせる</button>
+			<% if menu.quantity != 0 %>
+				<%= link_to '/orders/new/'+menu.id.to_s, :id => menu.id do %>
+				<button class="reserve">トレーにのせる</button>
+				<% end %>
+			<% else %>
+				<button class="reserve sold_out">売り切れ</button>
 			<% end %>
 		</div>
 	</div>

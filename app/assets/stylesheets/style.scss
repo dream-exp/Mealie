@@ -338,6 +338,14 @@ div#menus {
 						background: #0d8197;
 					}
 				}
+
+				button.sold_out {
+					background: #CC0600;
+
+					&:active {
+						background: #CC0600;
+					}
+				}
 			}
 			// button.reserve {
 			// 	float: right;
@@ -449,6 +457,14 @@ div.details {
 
 			&:active {
 				background-color: #196c98;
+			}
+		}
+
+		button.sold_out {
+			background: #CC0600;
+
+			&:active {
+				background: #CC0600;
 			}
 		}
 	}

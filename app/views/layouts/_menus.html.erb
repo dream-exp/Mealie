@@ -11,8 +11,12 @@
 				<%= link_to menus_path+'/'+menu.category+'/'+menu.id.to_s do %>
           <button class="read_more">詳しく見る</button>
         <% end %>
-        <%= link_to '/orders/new/'+menu.id.to_s, :id => menu.id do %>
-        <button class="reserve">トレーに<br>のせる</button>
+        <% if menu.quantity != 0 %>
+          <%= link_to '/orders/new/'+menu.id.to_s, :id => menu.id do %>
+          <button class="reserve">トレーに<br>のせる</button>
+          <% end %>
+        <% else %>
+          <button class="reserve sold_out">売り切れ</button>
         <% end %>
       </div>
     </div>

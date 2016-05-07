@@ -9,6 +9,8 @@ class CreateMenus < ActiveRecord::Migration
       t.string :allergy
       t.integer :quantity
       t.string :day
+      t.integer :page_view
+      t.integer :purchase_count
 
       t.timestamps null: false
     end

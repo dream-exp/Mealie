@@ -12,6 +12,7 @@ class MenusController < ApplicationController
   def detail
     @menus = Menu.all
     @menu = Menu.find(params[:id])
+    Menu.find(params[:id]).update({:page_view => @menu.page_view + 1})
     render 'menus/detail'
   end
 

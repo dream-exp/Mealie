@@ -1,0 +1,193 @@
+// Place all the styles related to the payments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	width: 100%;
+	height: 100px;
+	background: image-url('administration_header_bg.jpg');
+	background-size: cover;
+
+	img {
+		display: block;
+		height: 60px;
+		margin: 0 auto;
+		padding-top: 20px;
+	}
+}
+
+img {
+	display: block;
+	margin: 200px auto 30px;
+}
+
+p {
+	font-size: 25px;
+	color: #484848;
+	text-align: center;
+}
+
+
+div#mypage_header {
+	width: 100%;
+
+	h4 {
+		line-height: 50px;
+		font-size: 23px;
+		border-bottom: solid 1px #d7d7d7;
+		padding-left: 75px;
+		padding-top: 10px;
+		padding-bottom: 8px;
+		background: image-url("card_icon.png");
+		background-repeat: no-repeat;
+		background-size: 40px 40px;
+		background-position: 20px 14px;
+
+	}
+}
+
+p#result {
+	margin-top: 200px;
+}
+
+div#title {
+	width: 100%;
+	height: 40px;
+	clear: both;
+	margin: 10px auto 0;
+	padding-bottom: 5px;
+	
+	h3 {
+		padding-top: 10px;
+		text-align: center;
+		margin: 10px;
+		font-size: 24px;
+		color: #CC1F45;
+	}
+}
+
+div#orders {
+	width: 100%;
+	margin-top: 20px;
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		border-bottom: dashed 1px;
+		
+		tr#header {
+			width: 728px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		th {
+			text-align: left;
+		}
+
+		th#date {
+			width: 30%;
+			text-align: left;
+			padding-left: 20px;
+		}
+
+		th#menu_name {
+			width: 30%;
+			text-align: left;
+		}
+
+		th#price {
+			width: 25%;
+		}
+
+		th#status {
+			width: 15%;
+			padding-right: 20px;
+		}
+
+		tr {
+			height: 80px;
+			font-size: 18px;
+
+			td {
+				text-align: left;
+
+				button {
+					left: 0;
+					width: 100%;
+					height: 50px;
+					border: none;
+					display: block;
+					margin: 0 auto;
+					background: #C21628;
+					border-radius: 3px;
+					border-bottom: solid 2px #373737;
+					color: #fff;
+					font-size: 16px;
+				}
+			}
+
+			td.date {
+				padding-left: 20px;
+				text-align: left;
+			}
+
+			td.menu_name {
+				font-weight: bold;
+				text-align: left;
+			}
+
+			td:nth-child(4) {
+				padding-right: 20px;
+			}
+		}
+
+		tr#header {
+			background: #C3C3C3;
+		}
+
+		tr:nth-child(odd) {
+			background: #F2F2F2;
+		}
+	}
+
+	p.not_order {
+		font-size: 22px;
+		font-weight: bold;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+}
+
+	p.sum_price {
+		text-align: right;
+		font-size: 23px;
+		font-weight: bold;
+		padding-top: 20px;
+		padding-right: 80px;
+		color: #373737;
+	}
+
+	button#submit {
+		display: block;
+		width: 30%;
+		height: 60px;
+		border: none;
+		border-radius: 5px;
+		border-bottom: solid 2px #373737;
+		color: #fff;
+		font-size: 20px;
+		margin-right: 80px;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		float: right;
+		background: #44C24C;
+	}

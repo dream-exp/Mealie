@@ -14,6 +14,8 @@ Rails.application.config.assets.precompile += %w( index_style.css )
 
 Rails.application.config.assets.precompile += %w( payments.css )
 
+Rails.application.config.assets.precompile += %w( administration.css )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
