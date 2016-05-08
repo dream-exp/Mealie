@@ -23,6 +23,16 @@ class MenusController < ApplicationController
     render 'menus/category'
   end
 
+  def new
+    @menu = Menu.new
+  end
+
+  # POST /menus.json
+  def create
+    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :cal, :allergy, :quantity, :day, :page_view, :purchase_count))
+    @menu.save
+    redirect_to :action => 'index'
+  end
   # # GET /menus/1
   # # GET /menus/1.json
   # def show

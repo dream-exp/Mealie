@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   get '/logins', to: 'logins#index'
 
 	get '/menus', to: 'menus#index'
+  get '/menus/new', to: 'menus#new'
+  post '/menus/create', to: 'menus#create'
   get '/menus/:category', to: 'menus#category'
   get '/menus/:category/:id', to: 'menus#detail'
+
+  resources :menus
 
   get '/mypage/:student_number', to: 'users#index'
   get '/tray/:student_number', to: 'users#tray'
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
   get '/payments/pay/:student_number', to: 'payments#pay'
 
   get '/administration', to: 'administration#index'
+
   # resources :menus do
   # 	member do
   # 		get 'detail'

@@ -1,4 +1,6 @@
 class CreateMenus < ActiveRecord::Migration
+  # default_value_for :page_view, :purchase_count => 0
+
   def change
     create_table :menus do |t|
       t.string :name
@@ -9,8 +11,8 @@ class CreateMenus < ActiveRecord::Migration
       t.string :allergy
       t.integer :quantity
       t.string :day
-      t.integer :page_view
-      t.integer :purchase_count
+      t.integer :page_view, default: 0
+      t.integer :purchase_count, default: 0
 
       t.timestamps null: false
     end

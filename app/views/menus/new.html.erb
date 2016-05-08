@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<%= stylesheet_link_tag "administration" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<header>
+		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
+	</header>
+	<%= form_for @menu, :url => {:action => 'create'} do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "メニュー名" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "価格" %>
+    <%= f.number_field :price %>
+  </div>
+  
+	<div class="field">
+    <%= f.label :category, "カテゴリ" %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :imageurl, "写真のURL(仮)" %>
+    <%= f.text_field :imageurl %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cal, "カロリー" %>
+    <%= f.number_field :cal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :allergy, "アレルギー成分" %>
+    <%= f.text_field :allergy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity, "1日の在庫数" %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :day, "発売曜日" %>
+    <%= f.text_field :day %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+</body>
+</html>
