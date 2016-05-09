@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 20160504185623) do
     t.string   "allergy"
     t.integer  "quantity"
     t.string   "day"
+    t.boolean  "mon"
+    t.boolean  "tue"
+    t.boolean  "wed"
+    t.boolean  "thu"
+    t.boolean  "fri"
     t.integer  "page_view",      default: 0
     t.integer  "purchase_count", default: 0
     t.datetime "created_at",                 null: false
