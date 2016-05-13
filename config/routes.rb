@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'control/administration'
 
   get '/logins', to: 'logins#index'
+  get '/logins/:student_number', to: 'logins#update_user'
 
 	get '/menus', to: 'menus#index'
   get '/menus/new', to: 'menus#new'

@@ -4,8 +4,16 @@ class LoginsController < ApplicationController
   # GET /logins
   # GET /logins.json
   def index
-    ActiveUser.first.update({:student_number => 12209})
+    ActiveUser.first.update({:student_number => nil})
     @logins = Login.all
+  end
+
+  def update_user
+    ActiveUser.first.update({:student_number => params[:student_number]})
+    tweet = params[:student_number].to_s
+    WebsocketRails[:streaming].trigger "create", tweet
+    head :ok
+    render :nothing
   end
 
   # GET /logins/1

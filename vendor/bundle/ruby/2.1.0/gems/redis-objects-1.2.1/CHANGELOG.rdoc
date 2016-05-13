@@ -1,0 +1,225 @@
+= Changelog for Redis::Objects
+
+== 1.2.0 (30 Apr 2015)
+
+
+* New expiration implementation to address edge cases and missing methods [Ross Kaffenberger]
+
+* Add support for expiration/expireat on HashKey#update [Ross Kaffenberger]
+
+* Make locks with 0 timeout possible  Jean Boussier]
+
+* Update hdel methods to support deleting multiple keys [Star]
+
+== 1.1.0 (21 Jan 2015)
+
+* Support connection_pool usage via a proxy object [Jared Jenkins]
+
+* Fix typo on :counter usage [Kevin Bongart]
+
+* Use parent redis_id_field if present [Arnaud Lavrard]
+
+* Fetch the objects options through a redis_options method [Arnaud Lavrard]
+
+== 1.0.1 (14 Oct 2014)
+
+* Array handling for unmarshal [dreyks]
+
+* Test against Ruby 2.1 / 2.2 on Travis CI [tricknotes]
+
+* Redis::Set#randmember method accept count as optional parameter [xeviknal]
+
+== 1.0.0 (25 Jul 2014)
+
+* Fix expiration filter to handle atomic blocks, remove method aliasing [nateware]
+
+* Fix incrbyfloat to actually return a float [james-lawrence]
+
+* Allow false as default: value (bugfix) [james-lawrence]
+
+* Allow unionstore and interstore between sorted sets and sets [jrdi]
+
+* Add syntax highlighting to README.md [bartolsthoorn]
+
+== 0.9.1 (25 Mar 2014)
+
+* Fix bad marshal calls in SortedSet [Fleurer, nateware]
+
+* Handle marshalling/unmarshalling of nil values [anujdas]
+
+* Add :default as synonym to :start for Counter [Fleurer]
+
+== 0.9.0 (6 Feb 2014)
+
+* Ensure we don't double-unmarshal values, which could be a security issue [markijbema, nateware]
+
+* Support a custom redis connection per redis key [hfwang]
+
+* HashKey#fetch now behaves more similarly to Ruby [datapimp]
+
+* Add incrbyfloat and decrbyfloat for values and hashes [nateware]
+
+* Add support for @sorted_set.merge and variadic zadd [hfwang]
+
+* Add support for srandmember for sets [LYY]
+
+* Handle @set << [] in an intelligent way [kitchen]
+
+* Add multi-unshift functionality [nateware]
+
+* Additional test coverage for @sorted_set.merge and other ops [nateware]
+
+== 0.8.0 (9 Nov 2013)
+
+* Refactor to modular include/extend approach to enable hooking and remove evals [nateware]
+
+* Custom id field via redis_id_field :whatever [liuming]
+
+* Support marshaling of sorted set key names for incr/decr [hfwang]
+
+* Add support for pushing multiple values into a list [scranton]
+
+* Fix problematic typo in HashKey#fill [johnmaxwell]
+
+* Fix wrong parameter order for revrangebyscore method [FoGhost]
+
+* Convert to using Bundler from Jeweler to manage gem [nateware]
+
+== 0.7.0 (27 Feb 2013)
+
+* Enable inheritance of Redis::Objects models [rossta]
+
+* Finally fix require/autoload so "require 'redis/foo'" is not needed [nateware]
+
+* Redis::Objects.redis= now properly sets subclass handles as expected [nateware]
+
+* Add lib/redis-objects.rb for easier Gemfile require [notEthan]
+
+* Fix wrong readme line, fix some indentation [giglemad]
+
+== 0.6.1 (13 Dec 2012)
+
+* Fixed error that incorrectly specified activerecord as a gem dep [nateware]
+
+== 0.6.0 (13 Dec 2012)
+
+* Add +@set.merge()+ method to add multiple members at once [hfwang]
+
+* Add +insert+ method to Redis::List instances [giglemad]
+
+* Updated APIs for recent redis-server sort API compat [nateware]
+
+* Add HashKey#bulk_values for fetching values in the same order than the given keys [aspgems]
+
+* Lists now handle the insert command
+
+* Changed +@sset.score+ method on SortedSet to return nil for invalid members [hkarthik]
+
+* Test using redis-objects counters and fix when AR passes a string
+
+* Add LSET to lists [neonlex]
+
+* Fix interstore/unionstore for redis 2.6 [david]
+
+* Redis-rb 3.0.0 support [seomoz]
+
+* group_set_with_scores is no longer needed.
+
+== 0.5.2 (13 Jun 2012)
+
+* Added Redis::SortedSet#member? method [Karl Varga]
+
+* Added +ttl+ method to CoreCommands [Karl Varga]
+
+== 0.5.1 (23 May 2011)
+
+* Fixed super class delegation conflicts with Redis Counters vs ActiveRecord [Tim Aßmann]
+
+* Added zcount method to SortedSet [dunedain289]
+
+* Updated redis-objects to look for Redis.current and prefer it over global $redis variable [Jean Boussier]
+
+* Updated URLs to reflect new redis.io website [Jérémy Lecour]
+
+== 0.5.0 (8 Nov 2010)
+
+* Incompatible change: Had to rename Redis::Hash to Redis::HashKey due to internal conflicts with Redis lib and Ruby [Nate Wiger]
+
+* Fixed AR counter override so that Redis::Objects doesn't hide AR counters [Mattias Pfeiffer]
+
+* Fixed delete problem with Redis::List and complex values [Esdras Mayrink]
+
+* Fix Redis::HashKey to support complex (marshaled) types [Mattias Pfeiffer]
+
+* Group results of SortedSet#rangebyscore and #revrangebyscore if :withscores option is passed [Szymon Nowak]
+
+* Updated Redis DEL semantics per API change [Gabe da Silveira]
+
+== 0.4.1 (23 Aug 2010)
+
+* Fixes for Ruby 1.8 failures due to missing flatten() [Gabe da Silveira]
+
+* Enable subclasses of classes mixing in Redis::Objects to automatically pick up objects from their superclasses [Gabe da Silveira]
+
+* Renamed prefix() and field_key() to redis_prefix() and redis_field_key() to prevent gem conflicts [Jason Meinzer]
+
+* Fixed a typo in delete_if and added missing test coverage [Julio Capote, Nate Wiger]
+
+== 0.4.0 (11 Aug 2010)
+
+* Full support for redis hashes via new Redis::Hash class [Julio Capote, Nate Wiger]
+
+* Now dependent on redis-rb client 2.0.4 or later.  Should still be backwards compatible with redis-server 1.x
+
+* Fixes to sets and sorted sets to bring them up to speed with redis-rb 2.0 from tomstuart [Tom Stuart]
+
+* Incompatible change: Update list[x,y] and sorted_set[x,y] to work consistently with Ruby in all cases [Tom Stuart]
+
+* Refactoring to make constructors common across all object types from dbalatero [David Balatero]
+
+* Renamed :withscores option to :with_scores for consistency with redis-rb 2.0, but kept backwards compat [Tom Stuart, Nate Wiger]
+
+== 0.3.2 (21 Jul 2010)
+
+* New "maxlength" option to Redis::List can create length-limited lists (eg, like a ring buffer) from dbalatero [David Balatero]
+
+* Fix score conversions in Redis::SortedSet (scores are floats, not ints) from tomstuart [Tom Stuart]
+
+* Switched from rspec to bacon for tests
+
+== 0.3.1 (1 Jun 2010)
+
+* Integrated fixes for sorted_set deletions from capotej [Julio Capote]
+
+== 0.3.0 (14 Apr 2010)
+
+* Due to Ruby 1.9 bugs and performance considerations, marshaling of data types is now OFF by default.  You must say :marshal => true for any objects that you want serialization enabled on. [Nate Wiger]
+
+* Sorted Set class changed slightly due to feedback. You can now get an individual element back via @set['item'] since it acts like a Hash.
+
+== 0.2.4 (9 Apr 2010)
+
+* Added sorted set support via Redis::SortedSet [Nate Wiger]
+
+== 0.2.3 (18 Feb 2010)
+
+* Added lock expiration to Redis::Lock [Ben VandenBos]
+
+* Fixed some bugs [Ben VandenBos]
+
+* Added lock tests and test helpers [Ben VandenBos]
+
+== 0.2.2 (14 Dec 2009)
+
+* Added @set.diff(@set2) with "^" and "-" synonyms (oversight). [Nate Wiger]
+
+* Implemented Redis core commands in all data types, such as rename. [Nate Wiger]
+
+* Renamed Redis::Serialize to Redis::Helpers::Serialize to keep Redis:: cleaner. [Nate Wiger]
+
+* More spec coverage. [Nate Wiger]
+
+== 0.2.1 (27 Nov 2009)
+
+* First worthwhile public release, with good spec coverage and functionality. [Nate Wiger]
+
