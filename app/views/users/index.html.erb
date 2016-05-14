@@ -1,10 +1,10 @@
 <%= render :template => 'layouts/_header' %>
 	<% @user.each do |user| %>
 	<% $student_number = user.student_number %>
-	<div id="mypage_header">
-		<h4>学籍番号：<span id="student_number"><%= user.student_number %></span></h4>
-	</div>
 	<% end %>
+	<div id="mypage_header">
+		<h4>学籍番号：<span id="student_number"><%= ActiveUser.first.student_number %></span></h4>
+	</div>
 
 	<div id="title">
 		<h3>本日の注文状況</h3>
