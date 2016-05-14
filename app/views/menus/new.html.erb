@@ -26,6 +26,11 @@
 	<div class="field">
     <%= f.label :category, "カテゴリ" %>
     <%= f.text_field :category %>
+    <p>既に存在するカテゴリ</p>
+    <% uniq = Menu.select(:category).uniq %>
+    <% uniq.each do |uniq| %>
+      <span><%= uniq.category %></span>
+    <% end %>
   </div>
 
   <div class="field">

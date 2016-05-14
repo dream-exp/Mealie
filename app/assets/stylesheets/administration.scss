@@ -239,6 +239,12 @@ div#orders {
 			border: solid 1px #525252;
 		}
 
+		p {
+			text-align: left;
+			font-weight: bold;
+			font-size: 15px;
+		}
+
 		label#image_upload {
 			display: block;
 			background: #207DAF;
@@ -265,6 +271,10 @@ div#orders {
 			width: 100%;
 			height: 80px;
 			border: solid 1px #525252;
+		}
+
+		span {
+			margin-right: 5px;
 		}
 	}
 
