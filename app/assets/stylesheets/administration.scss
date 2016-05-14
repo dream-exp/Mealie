@@ -2,11 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 * {
 	margin: 0;
 	padding: 0;
+	font-family:"Open Sans", Avenir, "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" ,"Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
 }
 
 header {
@@ -17,11 +16,13 @@ header {
 
 	img {
 		display: block;
-		height: 60px;
+		height: 45px;
 		margin: 0 auto;
-		padding-top: 20px;
+		padding-top: 27px;
 	}
 }
+
+
 
 img {
 	display: block;
@@ -191,3 +192,122 @@ div#orders {
 		float: right;
 		background: #44C24C;
 	}
+
+//for iphone
+
+@media screen and (max-device-width: 800px) {
+	header {
+		width: 100%;
+		height: 60px;
+		background: image-url('administration_header_bg.jpg');
+		background-size: cover;
+
+		img {
+			display: block;
+			height: 30px;
+			margin: 0 auto;
+			padding-top: 15px;
+		}
+	}
+
+	h4 {
+		color: #3D3D3D;
+		padding: 8px;
+		border-bottom: dashed 1px;
+	}
+
+	div {
+		width: 95%;
+		margin: 10px auto 15px;
+	}
+
+	div.field {
+
+		label {
+			width: 100%;
+		}
+
+		* {
+			border: none;
+		}
+
+		input {
+			border-radius: 3px;
+			font-size: 22px;
+			width: 100%;
+			height: 40px;
+			border: solid 1px #525252;
+		}
+
+		label#image_upload {
+			display: block;
+			background: #207DAF;
+			border-radius: 3px;
+			width: 100%;
+			height: 40px;
+			border-bottom: solid 2px #373737;
+			text-align: center;
+			color: #fff;
+			font-size: 17px;
+			line-height: 40px;
+		}
+
+		input[type="file"] {
+			display: none;
+
+			input {
+				background: #000;
+			}
+		}
+
+		textarea {
+			font-size: 20px;
+			width: 100%;
+			height: 80px;
+			border: solid 1px #525252;
+		}
+	}
+
+	div.actions {
+
+		input#submit {
+			-webkit-appearance: none;
+			appearance: none;
+			border: none;
+			border-bottom: solid 2px #373737;
+			background: #659E27;
+			width: 100%;
+			height: 50px;
+			border-radius: 3px;
+			margin: 0 auto;
+			color: #fff;
+			font-size: 20px;
+		}
+	}
+
+	div#days {
+
+		h5 {
+			font-size: 16px;
+			font-weight: 100;
+		}
+
+		div {
+			width: 60px;
+			display: inline-block;
+
+			label {
+				display: block;
+				text-align: center;
+			}
+
+			input {
+				display: block;
+				margin: 0 auto;
+				width: 30px;
+			}
+		}
+	}
+
+
+}
