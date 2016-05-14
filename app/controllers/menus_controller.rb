@@ -29,7 +29,7 @@ class MenusController < ApplicationController
 
   # POST /menus.json
   def create
-    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :cal, :allergy, :quantity, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count))
+    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count))
     @menu.save
     redirect_to :action => 'index'
   end

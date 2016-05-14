@@ -10,6 +10,7 @@ class CreateMenus < ActiveRecord::Migration
       t.integer :cal
       t.string :allergy
       t.integer :quantity
+      t.text :description
       t.boolean :mon
       t.boolean :tue
       t.boolean :wed

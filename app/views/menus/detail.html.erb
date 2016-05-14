@@ -88,6 +88,12 @@
 				<button class="reserve sold_out">売り切れ</button>
 			<% end %>
 		</div>
+		<% if menu.description != nil %>
+			<div class="description">
+				<h5>商品の説明</h5>
+				<p><%= menu.description %></p>
+			</div>
+		<% end %>
 	</div>
 
 	<div id="title">
