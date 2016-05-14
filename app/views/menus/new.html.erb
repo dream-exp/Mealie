@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :imageurl, "写真のURL(仮)" %>
-    <%= f.text_field :imageurl %>
+    <%= f.file_field :imageurl %>
   </div>
 
   <div class="field">
@@ -47,8 +47,28 @@
   </div>
 
   <div class="field">
-    <%= f.label :day, "発売曜日" %>
-    <%= f.text_field :day %>
+    <%= f.label :mon, "月" %>
+    <%= f.check_box :mon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tue, "火" %>
+    <%= f.check_box :tue %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wed, "水" %>
+    <%= f.check_box :wed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thu, "木" %>
+    <%= f.check_box :thu %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fri, "金" %>
+    <%= f.check_box :fri %>
   </div>
 
   <div class="actions">

@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160504185623) do
     t.integer  "cal"
     t.string   "allergy"
     t.integer  "quantity"
-    t.string   "day"
     t.boolean  "mon"
     t.boolean  "tue"
     t.boolean  "wed"

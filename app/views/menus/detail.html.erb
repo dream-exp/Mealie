@@ -1,5 +1,32 @@
 <%= render :template => 'layouts/_header' %>
 	<% menu = @menu %>
+	<% 
+    $sell_flag = false
+    wdays = ["日", "月", "火", "水", "木", "金", "土"]
+
+    case wdays[Time.now.wday]
+    when '月'
+      if menu.mon
+        $sell_flag = true
+      end
+    when '火'
+      if menu.tue
+        $sell_flag = true
+      end
+    when '水'
+      if menu.wed
+        $sell_flag = true
+      end
+    when '木'
+      if menu.thu
+        $sell_flag = true
+      end
+    when '金'
+      if menu.fri
+        $sell_flag = true
+      end
+    end
+  %>
 	<div class="details">
 		<%= image_tag menu.imageurl%>
 		<div class="information">
@@ -19,11 +46,41 @@
 					<th style="border-top: solid 1px #D7D7D7;">発売曜日</th>
 				</tr>
 				<tr>
-					<td  style="border-right: solid 1px #D7D7D7"><%= menu.quantity %></td>
-					<td><%= menu.day %></td>
+					<td  style="border-right: solid 1px #D7D7D7">
+						<% if $sell_flag	%>
+							<%= menu.quantity %>
+						<% else %>
+							―
+						<% end %>
+					</td>
+					<td>
+					<% 
+						$day = "" 
+
+						if menu.mon
+							$day += '月'
+						end
+						if menu.tue
+							$day += '火'
+						end
+						if menu.wed
+							$day += '水'
+						end
+						if menu.thu
+							$day += '木'
+						end
+						if menu.mon
+							$day += '金'
+						end
+					%>
+					<%= $day %>
+					</td>
 				</tr>
 			</table>
-			<% if menu.quantity != 0 %>
+			
+      <% if !$sell_flag %>
+        <button class="reserve not_sell">今日は販売されていません</button>
+			<% elsif menu.quantity != 0 %>
 				<%= link_to '/orders/new/'+menu.id.to_s, :id => menu.id do %>
 				<button class="reserve">トレーにのせる</button>
 				<% end %>

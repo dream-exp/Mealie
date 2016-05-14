@@ -346,6 +346,15 @@ div#menus {
 						background: #CC0600;
 					}
 				}
+
+				button.not_sell {
+					color: #E4E4E4;
+					background: #717171;
+
+					&:active {
+						background: #717171;
+					}
+				}
 			}
 			// button.reserve {
 			// 	float: right;
@@ -467,6 +476,15 @@ div.details {
 				background: #CC0600;
 			}
 		}
+
+		button.not_sell {
+					color: #E4E4E4;
+					background: #717171;
+
+					&:active {
+						background: #717171;
+					}
+				}
 	}
 }
 
