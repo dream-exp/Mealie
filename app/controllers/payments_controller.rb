@@ -1,7 +1,18 @@
 class PaymentsController < ApplicationController
 
 	def index
+		PaymentsUser.destroy_all
 		render 'payments/index'
+	end
+
+	def payments_user_update
+		if PaymentsUser.count == 0
+      PaymentsUser.create({:student_number => params[:student_number]})
+      tweet = params[:student_number].to_s
+      WebsocketRails[:payments].trigger "create", tweet
+      head :ok
+    end
+    render :nothing	=> true
 	end
 
 	def confirmation

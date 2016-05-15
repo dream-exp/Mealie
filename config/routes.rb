@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/orders/destroyall/:student_number', to: 'orders#destroyall'
 
   get '/payments', to: 'payments#index'
+  get '/payments/:student_number', to: 'payments#payments_user_update'
   get '/payments/confirmation/:student_number', to: 'payments#confirmation'
   get '/payments/pay/:student_number', to: 'payments#pay'
 

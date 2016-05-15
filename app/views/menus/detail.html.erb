@@ -21,11 +21,12 @@
       if menu.thu
         $sell_flag = true
       end
-    when '金' #debug
+    when '金'
       if menu.fri
         $sell_flag = true
       end
     end
+    $sell_flag = true
   %>
 	<div class="details">
 		<%= image_tag menu.imageurl%>
@@ -69,7 +70,7 @@
 						if menu.thu
 							$day += '木'
 						end
-						if menu.mon
+						if menu.fri
 							$day += '金'
 						end
 					%>
