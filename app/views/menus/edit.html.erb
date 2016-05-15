@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= stylesheet_link_tag "administration" %>
+  <title>Mealie</title>
+</head>
+<body>
+  <header>
+    <%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
+  </header>
+  <h4>メニュー編集</h4>
+  <%= form_for @menu, :url => {:action => 'update'} do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "メニュー名" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "価格 [単位：円]" %>
+    <%= f.number_field :price %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :category, "カテゴリ" %>
+    <%= f.text_field :category %>
+    <p>既に存在するカテゴリ</p>
+    <% uniq = Menu.select(:category).uniq %>
+    <% uniq.each do |uniq| %>
+      <span><%= uniq.category %></span>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :imageurl, "写真を選択してアップロード" %>
+    <label for="menu_imageurl" id="image_upload">
+      写真を選択
+    </label>
+    <%= f.file_field :imageurl %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cal, "カロリー [単位：kcal]" %>
+    <%= f.number_field :cal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :allergy, "アレルギー成分" %>
+    <%= f.text_field :allergy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity, "1日の在庫数 [単位：個]" %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "メニューの説明文" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div id="days">
+    <h5>発売曜日の選択</h5>
+    <div class="field">
+      <%= f.label :mon, "月" %>
+      <%= f.check_box :mon %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tue, "火" %>
+      <%= f.check_box :tue %>
+    </div>
+
+    <div class="field">
+      <%= f.label :wed, "水" %>
+      <%= f.check_box :wed %>
+    </div>
+
+    <div class="field">
+      <%= f.label :thu, "木" %>
+      <%= f.check_box :thu %>
+    </div>
+
+    <div class="field">
+      <%= f.label :fri, "金" %>
+      <%= f.check_box :fri %>
+    </div>
+  </div>
+
+  <div class="actions">
+      <%= f.submit "登録する", :id => "submit" %>
+    </div>
+
+<% end %>
+</body>
+</html>

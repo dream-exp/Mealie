@@ -4,15 +4,17 @@ class LoginsController < ApplicationController
   # GET /logins
   # GET /logins.json
   def index
-    ActiveUser.first.update({:student_number => nil})
+    ActiveUser.destroy_all
     @logins = Login.all
   end
 
   def update_user
-    ActiveUser.first.update({:student_number => params[:student_number]})
-    tweet = params[:student_number].to_s
-    WebsocketRails[:streaming].trigger "create", tweet
-    head :ok
+    if ActiveUser.count == 0
+      ActiveUser.create({:student_number => params[:student_number]})
+      tweet = params[:student_number].to_s
+      WebsocketRails[:streaming].trigger "create", tweet
+      head :ok
+    end
     render :nothing
   end
 

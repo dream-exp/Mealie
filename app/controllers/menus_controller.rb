@@ -27,6 +27,19 @@ class MenusController < ApplicationController
     @menu = Menu.new
   end
 
+  def edit
+    @menu = Menu.find(params[:id])
+  end
+
+  def update
+    @user = Menu.find(params[:id])
+    if @menu.update(menu_params)
+      redirect_to 'menus/index'
+    else
+      render 'edit'
+    end
+  end
+
   # POST /menus.json
   def create
     @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count))
