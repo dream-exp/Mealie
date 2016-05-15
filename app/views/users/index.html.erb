@@ -29,7 +29,7 @@
 			<td class="status"><%= order.status %></td>
 			<td class="button">
 			<% if order.status == 'トレー上' %>
-				<%= link_to '/orders/destroy/'+order.id.to_s, :id => order.id do %>
+				<%= link_to '/orders/destroy/'+order.id.to_s+'/mypage', :id => order.id, :from => 'mypage' do %>
 				<button>削除</button>
 				<% end %>
 			<% end %>

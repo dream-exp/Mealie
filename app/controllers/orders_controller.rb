@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     @menu = Menu.find(@order.menu_id)
     Menu.find(@order.menu_id).update({:quantity => @menu.quantity + 1})
     @order.destroy
-    if params[:action] == 'tray'
+    if params[:from] == 'tray'
       redirect_to controller: 'users', action: 'tray', student_number: ActiveUser.first.student_number
     else
       redirect_to controller: 'users', action: 'index', student_number: ActiveUser.first.student_number
@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
       Menu.find(order.menu_id).update({:quantity => @menu.quantity + 1})
       order.destroy
     end
-    redirect_to controller: 'users', action: 'tray', student_number: ActiveUser.first.student_number
+    redirect_to controller: 'menus', action: 'index', student_number: ActiveUser.first.student_number
   end
 
 end

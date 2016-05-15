@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/orders/new/:id', to: 'orders#new'
   get '/orders/confirm/:student_number', to: 'orders#confirm'
-  get '/orders/destroy/:id', to: 'orders#destroy'
+  get '/orders/destroy/:id/:from', to: 'orders#destroy'
   get '/orders/destroyall/:student_number', to: 'orders#destroyall'
 
   get '/payments', to: 'payments#index'
