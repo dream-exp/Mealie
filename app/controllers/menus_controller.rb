@@ -1,5 +1,4 @@
 class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus
   # GET /menus.json
@@ -7,6 +6,11 @@ class MenusController < ApplicationController
     @uniq = Menu.select(:category).uniq
     @menus = Menu.all
     render 'menus/index'
+  end
+
+  def management
+    @menus = Menu.all
+    render 'menus/management'
   end
 
   def detail
@@ -29,12 +33,18 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
+    if (@menu.imageurl.blank?) then
+    else
+     @menu.imageurl.cache!
+    end
+    render 'menus/edit'
   end
 
   def update
     @user = Menu.find(params[:id])
     if @menu.update(menu_params)
-      redirect_to 'menus/index'
+      @menus = Menu.all
+      redirect_to 'menus/management'
     else
       render 'edit'
     end
@@ -42,9 +52,17 @@ class MenusController < ApplicationController
 
   # POST /menus.json
   def create
-    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count))
+    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count))
     @menu.save
-    redirect_to :action => 'index'
+    @menus = Menu.all
+    redirect_to :action => 'management'
+  end
+
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    @menus = Menu.all
+    render 'menus/management'
   end
   # # GET /menus/1
   # # GET /menus/1.json

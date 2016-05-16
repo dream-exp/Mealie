@@ -39,6 +39,8 @@
       写真を選択
     </label>
     <%= f.file_field :imageurl %>
+    <%= f.hidden_field :imageurl_cache %>
+  　<%= image_tag @menu.imageurl.url if @menu.imageurl? %>
   </div>
 
   <div class="field">

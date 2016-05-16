@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
 	get '/menus', to: 'menus#index'
   get '/menus/new', to: 'menus#new'
+  get '/menus/destroy/:id', to: 'menus#destroy'
+  get '/menus/management', to: 'menus#management'
   get '/menus/edit/:id', to: 'menus#edit'
   post '/menus/create', to: 'menus#create'
   get '/menus/:category', to: 'menus#category'

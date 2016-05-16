@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+	<%= stylesheet_link_tag "administration" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<header>
+		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "management" %>
+	</header>
+  <h4>メニュー 一覧</h4>
+  <a href="/menus/new">
+  <button id="create_menu">+ 新規登録</button>
+  </a>
+	<% @menus.each do |menu| %>
+  <article>
+    <span><%= menu.name %></span>
+    <%= link_to '/menus/destroy/'+menu.id.to_s, :id => menu.id do %>
+    <button>削除</button>
+    <% end %>
+  </article>
+  <% end %>
+</body>
+</html>
