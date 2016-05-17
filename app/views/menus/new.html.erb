@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
+		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "management" %>
 	</header>
   <h4>新規メニュー登録</h4>
 	<%= form_for @menu, :url => {:action => 'create'} do |f| %>
