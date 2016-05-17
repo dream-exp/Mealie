@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get '/orders/new/:id', to: 'orders#new'
   get '/orders/confirm/:student_number', to: 'orders#confirm'
+  get '/orders/paid/:student_number', to: 'orders#paid'
   get '/orders/destroy/:id/:from', to: 'orders#destroy'
   get '/orders/destroyall/:student_number', to: 'orders#destroyall'
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   get '/payments/pay/:student_number', to: 'payments#pay'
 
   get '/administration', to: 'administration#index'
+  get '/administration/:student_number', to: 'administration#index'
 
   # resources :menus do
   # 	member do

@@ -1,15 +1,63 @@
+<% $sum = 0 %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
 	<%= stylesheet_link_tag "administration" %>
+	<%= javascript_include_tag "administration" %>
 	<title>Mealie</title>
 </head>
 <body>
 	<header>
 		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "menus", :action => "index" %>
 	</header>
-	<%= link_to image_tag('touch.png', :class => 'vertical_middle') %>
-	<p>FeliCaリーダに学生証をタッチしてください</p>
+	<div id="left_content">
+		<h4>支払受付状況</h4>
+		<div>
+			<div id="header">
+				<span class="menu_name">メニュー名</span>
+				<span class="price">価格</span>
+				<span class="date">注文日時</span>
+			</div>
+			<% @orders.each do |order| %>
+			<article>
+				<span class="menu_name">
+					<%= order.menu_name %>
+				</span>
+				<span class="price"><%= order.price %>円</span>
+				<span class="date"><%= order.created_at.strftime("%Y年%m月%d日 %H時%M分") %></span>
+			</article>
+			<% $sum += order.price %>
+			<% end %>
+			<% if $sum != 0 %>
+			<div id="sum">
+				<p>
+					<span>学籍番号：<%= @student_number %></span>
+					<span>合計：<%= $sum %>円</span>
+				</p>
+				<%= link_to '/orders/paid/' + @student_number.to_s , :student_number => @student_number do %>
+				<button>支払い済みにする</button>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<div id="right_content">
+		<h4>統計情報</h4>
+		<div>
+			<h5>注文数ランキング</h5>
+			<% @order_quantity = Menu.order("purchase_count DESC").limit(5) %>
+			<% @order_quantity.each do |menu| %>
+			<article><%= menu.name %><span><%= menu.purchase_count %>回</span></article>
+			<% end %>
+		</div>
+		<div>
+			<h5>ページ閲覧数ランキング</h5>
+			<% @view_quantity = Menu.order("page_view DESC").limit(5) %>
+			<% @view_quantity.each do |menu| %>
+			<article><%= menu.name %><span><%= menu.page_view %>回</span></article>
+			<% end %>
+		</div>
+	</div>
 </body>
 </html>

@@ -40,6 +40,6 @@ $('#menus').click(function() {
 	}
 });
 
-$('.skip').click(function() { //テスト用
-	window.location.href = 'menus';
-}) 
+// $('.skip').click(function() { //テスト用
+// 	window.location.href = 'menus';
+// }) 

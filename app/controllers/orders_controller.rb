@@ -18,6 +18,14 @@ class OrdersController < ApplicationController
     redirect_to controller: 'menus', action: 'index'
   end
 
+  def paid
+    @orders = Order.where(student_number: params[:student_number]).where(created_at: Time.now.all_day).where(status: '注文確定')
+    @orders.each do |order|
+      order.update({:status => '支払い済み'})
+    end
+    redirect_to controller: 'administration', action: 'index'
+  end
+
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy

@@ -26,6 +26,8 @@ class PaymentsController < ApplicationController
     @orders.each do |order|
       order.update({:status => '注文確定'})
     end
+    tweet = params[:student_number]
+    WebsocketRails[:administration].trigger "create", tweet
 		@sum = $sum
 		render 'payments/pay'
 	end
