@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     @orders.each do |order|
       order.update({:status => '支払い済み'})
     end
-    redirect_to controller: 'administration', action: 'index'
+    redirect_to '/administration'
   end
 
   # DELETE /orders/1
