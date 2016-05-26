@@ -21,6 +21,8 @@ Rails.application.config.assets.precompile += %w( logins.js )
 Rails.application.config.assets.precompile += %w( payments.js )
 
 Rails.application.config.assets.precompile += %w( administration.js )
+
+Rails.application.config.assets.precompile += %w( menus.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

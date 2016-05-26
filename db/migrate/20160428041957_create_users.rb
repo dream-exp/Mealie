@@ -3,8 +3,8 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.integer :student_number
       t.string :card_id
-      t.text :orderarray
       t.integer :not_pay
+      t.integer :use_count
 
       t.timestamps null: false
     end

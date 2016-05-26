@@ -1,3 +1,14 @@
+<%= javascript_include_tag "menus" %>
+<% if Order.where(student_number: params[:student_number]).where(created_at: Time.zone.now.all_day).where(:status => 'トレー上').count %>
+<div id="modal_window">
+    <p>
+    トレーに注文が載りました<br>
+    注文を確定するには右上の<%= link_to image_tag('tray_icon_for_modal.png'), :controller => "users", :action => "tray", :student_number => ActiveUser.first.student_number %>ボタンから予約を確定してください。
+    </p>
+    <button id="modal_ok">OK</button>
+</div>
+<% end %>
+<div id="modal_bg"></div>
 <div id="menus">
 	<% @menus.each do |menu| %>
   <div class="menu">

@@ -1,14 +1,5 @@
 var menuTgl = false;
 
-$(function () {
-	var url = window.location;
-	var path = url.href.split('/');
-	var file_name = path.pop();
-	
-	if(file_name == "index.html" || file_name == "") 
-		$('body').addClass("index");
-});
-
 $('button.search').click(function() {
 	console.log("click");
 
@@ -38,6 +29,11 @@ $('#menus').click(function() {
 		//$('header').css('position', 'fixed');
 		menuTgl = false;
 	}
+});
+
+
+$('button#modal_ok').click(function(){
+	$('div#modal_window').hide()
 });
 
 // $('.skip').click(function() { //テスト用

@@ -4,6 +4,42 @@
 	transform: translateY(-50%);
 }
 
+div#modal_window {
+	width: 768px;
+	height: 1044px;
+	background: rgba(0, 0, 0, 0.9);
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	p {
+		margin-top: 450px;
+		color: #ffffff;
+		text-align: center;
+
+		img {
+			vertical-align:middle;
+			width: 40px;
+			padding: 0 10px;
+		}
+	}
+
+	button {
+		opacity: 1.0;
+		display: block;
+		width: 30%;
+		height: 60px;
+		border: none;
+		border-radius: 5px;
+		border-bottom: solid 2px #373737;
+		color: #fff;
+		font-size: 20px;
+		margin: 40px auto 0;
+		background: #44C24C;
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
