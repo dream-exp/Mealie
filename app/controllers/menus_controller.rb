@@ -41,10 +41,10 @@ class MenusController < ApplicationController
   end
 
   def update
-    @user = Menu.find(params[:id])
+    @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
       @menus = Menu.all
-      redirect_to 'menus/management'
+      redirect_to :action => 'management'
     else
       render 'edit'
     end
@@ -64,6 +64,11 @@ class MenusController < ApplicationController
     @menus = Menu.all
     render 'menus/management'
   end
+
+  private
+    def menu_params
+      params.require(:menu).permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count)
+    end
   # # GET /menus/1
   # # GET /menus/1.json
   # def show
