@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/logins/:student_number', to: 'logins#update_user'
 
 	get '/menus', to: 'menus#index'
+  get '/menus/reset', to: 'menus#reset'
   get '/menus/new', to: 'menus#new'
   get '/menus/destroy/:id', to: 'menus#destroy'
   get '/menus/management', to: 'menus#management'

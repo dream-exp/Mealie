@@ -62,6 +62,25 @@ class MenusController < ApplicationController
     render 'menus/management'
   end
 
+  def reset
+    @orders = Order.all
+    @orders.each do |order|
+      if order.status == "予約注文完了"
+        @user = User.find_by(:student_number => order.student_number)
+        logger.debug("オーダーステータス："+@user.student_number.to_s)
+        @user.update({:not_pay => @user.not_pay + 1})
+      end
+    end
+    @orders.where(:status => "トレー上").destroy_all
+    @orders.where(:status => "予約注文完了").destroy_all
+
+    @menus = Menu.all
+    @menus.each do |menu|
+      menu.update({:quantity => menu.quantity + menu.purchase_count, :purchase_count => 0})
+    end
+    redirect_to 'administration'
+  end
+
   private
     def menu_params
       params.require(:menu).permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count)

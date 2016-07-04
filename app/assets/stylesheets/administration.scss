@@ -330,6 +330,22 @@ div#orders {
 		width: 40%;
 		float: right;
 
+		button#reset {
+			display: block;
+			margin: 20px auto;
+			width:93%;
+			border: none;
+			border-radius: 5px;
+			height: 80px;
+			background-image: -webkit-gradient(linear,0 0,100% 100%, color-stop(.25,#E62539), color-stop(.25,transparent), color-stop(.5,transparent), color-stop(.5,#E62539), color-stop(.75,#E62539), color-stop(.75,transparent),to(transparent));
+	    -webkit-background-size: 30px;
+	    background-color: #FA503D;
+	    padding: 20px;
+	    color: #fff;
+	    font-size: 1.2em;
+
+		}
+
 		div {
 			margin: 20px auto 40px;
 			width: 93%;
@@ -389,6 +405,7 @@ div#orders {
 		padding: 8px;
 		border-bottom: dashed 1px;
 	}
+
 
 	div {
 		width: 95%;
