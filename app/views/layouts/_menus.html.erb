@@ -1,5 +1,5 @@
 <%= javascript_include_tag "menus" %>
-<% if Order.where(student_number: ActiveUser.first.student_number).where(created_at: Time.zone.now.all_day).where(:status => 'トレー上').count == 1 %>
+<% if Order.where(student_number: ActiveUser.first.student_number).where(created_at: Time.zone.now.all_day).where(:status => 'トレー上').count == 1 && User.where(:student_number => ActiveUser.first.student_number).where(:use_count => 1).count != 0%>
 <div id="modal_window">
     <p>
     トレーに注文が載りました<br>
