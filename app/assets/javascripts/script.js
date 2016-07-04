@@ -36,6 +36,10 @@ $('button#modal_ok').click(function(){
 	$('div#modal_window').hide()
 });
 
+$('button#confirm').click(function(){
+	$('div#confirm').hide()
+});
+
 // $('.skip').click(function() { //テスト用
 // 	window.location.href = 'menus';
 // }) 

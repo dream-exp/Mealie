@@ -67,8 +67,7 @@ class MenusController < ApplicationController
     @orders.each do |order|
       if order.status == "予約注文完了"
         @user = User.find_by(:student_number => order.student_number)
-        logger.debug("オーダーステータス："+@user.student_number.to_s)
-        @user.update({:not_pay => @user.not_pay + 1})
+        @user.update({:not_pay => @user.not_pay + 1, :not_pay_confirm => true})
       end
     end
     @orders.where(:status => "トレー上").destroy_all

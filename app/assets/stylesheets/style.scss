@@ -160,6 +160,37 @@ header {
 	}
 }
 
+div#confirm {
+	width: 768px;
+	background: #FFAEB5;
+	border:solid 3px #FF3C57;
+	text-align: center;
+	padding: 20px 10px 30px;
+	position: fixed;
+	bottom: 80px;
+	box-sizing: border-box;
+
+	button#confirm {
+		width: 40%;
+		height: 50px;
+		background: #DCDCDC;
+		border-radius: 5px;
+		border:none;
+		font-size: 23px;
+		line-height: 30px;
+		margin-top: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-bottom: solid 2px #373737;
+
+		&:active {
+			border: none;
+			margin-top: 2px;
+			height: 58px;
+		}
+	}
+}
+
 div#title {
 	width: 760px;
 	height: 40px;

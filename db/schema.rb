@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(version: 20160515132522) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "student_number"
-    t.string   "card_id"
     t.integer  "not_pay"
     t.integer  "use_count"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "not_pay_confirm", default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

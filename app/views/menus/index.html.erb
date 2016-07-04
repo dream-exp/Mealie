@@ -1,4 +1,11 @@
 <%= render :template => 'layouts/_header' %>
+<% if User.find_by(:student_number => ActiveUser.first.student_number).not_pay_confirm == true %>
+	<div id="confirm">
+	前回ご利用時に注文確定後にお支払いが行われなかった商品があります。<br>注文確定後のお支払いがたびたび行われない場合は、ご利用を停止させていただく場合がございます。<br>
+	<button id="confirm">確認</button>
+	</div>
+	<% User.find_by(:student_number => ActiveUser.first.student_number).update({:not_pay_confirm => false}) %>
+<% end %>
   <div id="title">
     <h3>Menu</h3>
     <button class="search"></button>
