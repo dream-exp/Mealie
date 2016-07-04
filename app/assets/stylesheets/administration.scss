@@ -527,13 +527,20 @@ div#orders {
 		}
 
 		button {
-			background: #CE0614;
 			color: #fff;
 			border: none;
 			border-bottom: solid 1px #fff;
 			height: 50px;
-			width: 100px;
+			width: 60px;
 			float: right;
+		}
+
+		button.edit {
+			background: #287CBC;
+		}
+
+		button.delete {
+			background: #CE0614;
 		}
 	}
 

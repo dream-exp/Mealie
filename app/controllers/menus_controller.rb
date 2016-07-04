@@ -33,10 +33,7 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
-    if (@menu.imageurl.blank?) then
-    else
-     @menu.imageurl.cache!
-    end
+    @menu.imageurl.cache! unless @menu.imageurl.blank?
     render 'menus/edit'
   end
 

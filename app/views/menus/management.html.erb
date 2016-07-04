@@ -18,7 +18,10 @@
   <article>
     <span><%= menu.name %></span>
     <%= link_to '/menus/destroy/'+menu.id.to_s, :id => menu.id do %>
-    <button>削除</button>
+    <button class="delete">削除</button>
+    <% end %>
+    <%= link_to '/menus/edit/'+menu.id.to_s, :id => menu.id do %>
+    <button class="edit">編集</button>
     <% end %>
   </article>
   <% end %>
