@@ -192,11 +192,8 @@ DEPENDENCIES
   default_value_for (~> 3.0.0)
   faye-websocket (= 0.10.0)
   jbuilder (~> 2.0)
-<<<<<<< HEAD
   jquery-rails
-=======
   pg (= 0.15.1)
->>>>>>> ae6d0de62e529eb4e57e0e6f7cd25c2e20d5e23e
   rails (= 4.2.2)
   rails_12factor (= 0.0.2)
   rmagick
