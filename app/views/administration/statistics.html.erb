@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<%= stylesheet_link_tag "administration" %>
+	<%= stylesheet_link_tag "statistics" %>
+	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<header>
+		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "administration", :action => "index" %>
+	</header>
+	<div id="statistics">
+		<h1>統計情報</h1>
+		<h2>総注文数のグラフ</h2>
+		<%= column_chart @data, colors: ["#FF6A0C", "#fff"], width: "1300px" %>
+		<h2>注文履歴</h2>
+		<div id="all_order">
+			<table class="table">
+		  <thead>
+		    <tr>
+		    	<th>日時</th>
+		      <th>学籍番号</th>
+		      <th>メニュー名</th>
+		      <th>価格</th>
+		      <th>ステータス</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @orders.each do |order| %>
+		    <tr>
+		      <th scope="row"><%= order.created_at.strftime('%Y年%m月%d日 %H時%M分') %></th>
+		      <td><%= order.student_number %></td>
+		      <td><%= order.menu_name %></td>
+		      <td><%= order.price %></td>
+		      <td><%= order.status %></td>
+		    </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+		</div>
+	</div>
+</body>
+</html>

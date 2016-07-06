@@ -49,6 +49,11 @@
 			</button>
 		<% end %>
 		<h4>統計情報</h4>
+		<%= link_to '/administration/statistics' do %>
+			<button id="statistics">統計情報確認ページヘ
+			</button>
+		<% end %>
+		<h4>ランキング</h4>
 		<div>
 			<h5>注文数ランキング</h5>
 			<% @order_quantity = Menu.order("purchase_count DESC").limit(5) %>

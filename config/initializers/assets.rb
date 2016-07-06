@@ -16,6 +16,8 @@ Rails.application.config.assets.precompile += %w( payments.css )
 
 Rails.application.config.assets.precompile += %w( administration.css )
 
+Rails.application.config.assets.precompile += %w( statistics.css )
+
 Rails.application.config.assets.precompile += %w( logins.js )
 
 Rails.application.config.assets.precompile += %w( payments.js )

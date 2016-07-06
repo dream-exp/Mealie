@@ -4,6 +4,8 @@
     $sell_flag = false
     wdays = ["日", "月", "火", "水", "木", "金", "土"]
 
+    logger.debug(wdays[Time.now.wday])
+
     case wdays[Time.now.wday]
     when '月'
       if menu.mon
@@ -26,7 +28,6 @@
         $sell_flag = true
       end
     end
-    $sell_flag = true
   %>
 	<div class="details">
 		<%= image_tag menu.imageurl%>
