@@ -14,7 +14,9 @@
 	<div id="statistics">
 		<h1>統計情報</h1>
 		<h2>総注文数のグラフ</h2>
+		<div id="all_order_graph">
 		<%= column_chart @data, colors: ["#FF6A0C", "#fff"], width: "1300px" %>
+		</div>
 		<h2>注文履歴</h2>
 		<div id="all_order">
 			<table class="table">
