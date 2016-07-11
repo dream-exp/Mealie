@@ -10,9 +10,9 @@ class LoginsController < ApplicationController
 
   def update_user
     @user = User.where(:student_number => params[:student_number]).first_or_create(:student_number => params[:student_number], :not_pay => 0, :use_count => 0)
-    @user.update({:use_count => @user.use_count + 1})
 
     if ActiveUser.count == 0
+      @user.update({:use_count => @user.use_count + 1})
       ActiveUser.create({:student_number => params[:student_number]})
       tweet = params[:student_number].to_s
       WebsocketRails[:streaming].trigger "create", tweet

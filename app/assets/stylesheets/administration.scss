@@ -358,7 +358,20 @@ div#orders {
 	    padding: 20px;
 	    color: #fff;
 	    font-size: 1.2em;
+		}
 
+		button#penalty {
+			display: block;
+			margin: 20px auto;
+			width:93%;
+			border: none;
+			border-bottom: solid 3px #9A9A9A;
+			border-radius: 5px;
+			height: 80px;
+	    background-color: #90C72C;
+	    padding: 20px;
+	    color: #fff;
+	    font-size: 1.2em;
 		}
 
 		div {

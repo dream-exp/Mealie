@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<%= stylesheet_link_tag "administration" %>
+	<%= stylesheet_link_tag "statistics" %>
+	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+	<title>Mealie</title>
+</head>
+<body>
+	<header>
+		<%= link_to image_tag('mealie_administration_logo.png', :class => 'vertical_middle'), :controller => "administration", :action => "index" %>
+	</header>
+	<div id="statistics">
+		<h1>未払いユーザ情報</h1>
+		<div id="all_order" class="not_pay">
+			<table class="table not_pay">
+		  <thead>
+		    <tr>
+		      <th>学籍番号</th>
+		      <th>累計未払い回数</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @users.each do |user| %>
+		  	<% if user.not_pay > 0 %>
+		    <tr>
+		      <td><%= user.student_number %></td>
+		      <td><%= user.not_pay %>回</td>
+		    </tr>
+		    <% end %>
+		    <% end %>
+		  </tbody>
+		</table>
+		</div>
+	</div>
+</body>
+</html>

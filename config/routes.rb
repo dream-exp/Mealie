@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get '/payments/pay/:student_number', to: 'payments#pay'
 
   get '/administration', to: 'administration#index'
+  get '/administration/penalty', to: 'administration#penalty'
   get '/administration/statistics', to: 'administration#statistics'
   get '/administration/:student_number', to: 'administration#index'
 

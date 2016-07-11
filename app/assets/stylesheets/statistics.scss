@@ -33,5 +33,13 @@ div#statistics {
 		margin: 0 auto;
 		overflow: scroll;
 		border: solid 2px #D9D9D9;
+
+		table.not_pay {
+			margin-top: 50px;
+		}
+	}
+
+	div#all_order.not_pay {
+		border: none;
 	}
 }
