@@ -1,0 +1,27 @@
+/Users/dream_exp/.rbenv/versions/2.2.5/bin/ruby -r ./siteconf20160730-80542-zpxj12.rb extconf.rb
+checking for clang... yes
+checking for Magick-config... no
+checking for pkg-config... yes
+Package MagickCore was not found in the pkg-config search path.
+Perhaps you should add the directory containing `MagickCore.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'MagickCore' found
+checking for outdated ImageMagick version (<= 6.4.9)... *** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/dream_exp/.rbenv/versions/2.2.5/bin/$(RUBY_BASE_NAME)
+
+extconf failed, exit code 1

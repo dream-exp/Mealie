@@ -6,10 +6,10 @@ class PaymentsController < ApplicationController
 	end
 
 	def payments_user_update
-		if PaymentsUser.count == 0
-      PaymentsUser.create({:student_number => params[:student_number]})
-      tweet = params[:student_number].to_s
+		unless PaymentsUser.exists?
+			tweet = params[:student_number].to_s
       WebsocketRails[:payments].trigger "create", tweet
+      PaymentsUser.create({:student_number => params[:student_number]})
       head :ok
     end
     render :nothing	=> true

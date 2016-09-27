@@ -31,8 +31,6 @@ gem 'faye-websocket', '0.10.0'
 
 gem 'carrierwave'
 
-gem 'rmagick'
-
 gem 'whenever', require: false
 
 gem "chartkick"

@@ -1,0 +1,12 @@
+/Users/dream_exp/.rbenv/versions/2.2.5/bin/ruby -r ./siteconf20160730-58259-i5evjx.rb extconf.rb
+
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+make "DESTDIR=" install
+echo "Nada."
+Nada.

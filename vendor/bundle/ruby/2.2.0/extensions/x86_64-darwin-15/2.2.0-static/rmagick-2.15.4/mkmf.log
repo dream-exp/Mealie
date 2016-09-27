@@ -1,0 +1,16 @@
+find_executable: checking for clang... -------------------- yes
+
+--------------------
+
+find_executable: checking for Magick-config... -------------------- no
+
+--------------------
+
+find_executable: checking for pkg-config... -------------------- yes
+
+--------------------
+
+Detected ImageMagick version: 
+Can't install RMagick 2.15.4. You must have ImageMagick 6.4.9 or later.
+Can't install RMagick 2.15.4. You must have ImageMagick 6.4.9 or later.
+
