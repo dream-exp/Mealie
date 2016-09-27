@@ -32,7 +32,7 @@
 			<% if $sum != 0 %>
 			<div id="sum">
 				<p>
-					<span>学籍番号：<%= @student_number %></span>
+					<span>IDm：<%= @student_number %></span>
 					<span>合計：<%= $sum %>円</span>
 				</p>
 				<%= link_to '/orders/paid/' + @student_number.to_s , :student_number => @student_number do %>

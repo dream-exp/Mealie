@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.integer :student_number
+      t.string :student_number
       t.integer :menu_id
       t.string :menu_name
       t.integer :price

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20160515132522) do
 
   create_table "active_users", force: :cascade do |t|
-    t.integer  "student_number"
+    t.string   "student_number"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160515132522) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "student_number"
+    t.string   "student_number"
     t.integer  "menu_id"
     t.string   "menu_name"
     t.integer  "price"
@@ -55,13 +55,13 @@ ActiveRecord::Schema.define(version: 20160515132522) do
   end
 
   create_table "payments_users", force: :cascade do |t|
-    t.integer  "student_number"
+    t.string   "student_number"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "student_number"
+    t.string   "student_number"
     t.integer  "not_pay"
     t.integer  "use_count"
     t.boolean  "not_pay_confirm", default: false
