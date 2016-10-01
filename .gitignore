@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+vendor/bundle/ruby/2.2.0/gems/libv8-3.16.14.15-x86_64-darwin-15/vendor/v8/out/x64.release/libv8_base.a
