@@ -16,6 +16,8 @@ class CreateMenus < ActiveRecord::Migration
       t.boolean :wed
       t.boolean :thu
       t.boolean :fri
+      t.boolean :sat
+      t.boolean :sun
       t.integer :page_view, default: 0
       t.integer :purchase_count, default: 0
 

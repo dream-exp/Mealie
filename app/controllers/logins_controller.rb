@@ -18,6 +18,7 @@ class LoginsController < ApplicationController
       WebsocketRails[:streaming].trigger "create", tweet
       head :ok
     end
+
     render :nothing
   end
 

@@ -1,13 +1,13 @@
 <%= render :template => 'layouts/_header' %>
 	<% menu = @menu %>
-	<% 
+	<%
     $sell_flag = false
     wdays = ["日", "月", "火", "水", "木", "金", "土"]
 
     logger.debug(wdays[Time.now.wday])
 
     case wdays[Time.now.wday]
-    when '月'
+    when '土'
       if menu.mon
         $sell_flag = true
       end
@@ -25,6 +25,14 @@
       end
     when '金'
       if menu.fri
+        $sell_flag = true
+      end
+		when '土'
+      if menu.sat
+        $sell_flag = true
+      end
+		when '日'
+      if menu.sun
         $sell_flag = true
       end
     end
@@ -56,8 +64,8 @@
 						<% end %>
 					</td>
 					<td>
-					<% 
-						$day = "" 
+					<%
+						$day = ""
 
 						if menu.mon
 							$day += '月'
@@ -74,12 +82,18 @@
 						if menu.fri
 							$day += '金'
 						end
+						if menu.sat
+							$day += '土'
+						end
+						if menu.sun
+							$day += '日'
+						end
 					%>
 					<%= $day %>
 					</td>
 				</tr>
 			</table>
-			
+
       <% if !$sell_flag %>
         <button class="reserve not_sell">今日は販売されていません</button>
 			<% elsif menu.quantity != 0 %>
@@ -103,5 +117,5 @@
 	</div>
 
 	<%= render :template => 'layouts/_menus' %>
-	
+
 <%= render :template => 'layouts/_footer' %>

@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20160515132522) do
     t.boolean  "wed"
     t.boolean  "thu"
     t.boolean  "fri"
+    t.boolean  "sat"
+    t.boolean  "sun"
     t.integer  "page_view",      default: 0
     t.integer  "purchase_count", default: 0
     t.datetime "created_at",                 null: false

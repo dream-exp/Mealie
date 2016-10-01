@@ -22,7 +22,7 @@
     <%= f.label :price, "価格 [単位：円]" %>
     <%= f.number_field :price %>
   </div>
-  
+
 	<div class="field">
     <%= f.label :category, "カテゴリ" %>
     <%= f.text_field :category %>
@@ -86,6 +86,16 @@
     <div class="field">
       <%= f.label :fri, "金" %>
       <%= f.check_box :fri %>
+    </div>
+
+		<div class="field">
+      <%= f.label :sat, "土" %>
+      <%= f.check_box :sat %>
+    </div>
+
+    <div class="field">
+      <%= f.label :sun, "日" %>
+      <%= f.check_box :sun %>
     </div>
   </div>
 

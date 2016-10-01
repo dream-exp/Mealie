@@ -7,4 +7,4 @@ channel = dispatcher.subscribe("streaming")
 channel.bind "create", (tweet) ->
 	console.log(tweet)
 	location.href = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/menus'
-  
+	document.getElementById( 'sound-file' ).play();

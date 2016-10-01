@@ -49,7 +49,7 @@ class MenusController < ApplicationController
 
   # POST /menus.json
   def create
-    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count))
+    @menu = Menu.new(params[:menu].permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :sat, :sun, :page_view, :purchase_count))
     @menu.save
     @menus = Menu.all
     redirect_to :action => 'management'
@@ -82,7 +82,7 @@ class MenusController < ApplicationController
 
   private
     def menu_params
-      params.require(:menu).permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :page_view, :purchase_count)
+      params.require(:menu).permit(:name, :price, :category, :imageurl, :imageurl_cache, :cal, :allergy, :quantity, :description, :mon, :tue, :wed, :thu, :fri, :sat, :sun, :page_view, :purchase_count)
     end
   # # GET /menus/1
   # # GET /menus/1.json

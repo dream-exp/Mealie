@@ -15,14 +15,14 @@
       <%= image_tag menu.imageurl%>
     <div class="caption">
       <div class="menu_top">
-        <h3 class="name"><%= menu.name %></h3> 
+        <h3 class="name"><%= menu.name %></h3>
         <p class="price"><%= menu.price %>yen</p>
       </div>
       <div class="menu_bottom">
 				<%= link_to menus_path+'/'+menu.category+'/'+menu.id.to_s do %>
           <button class="read_more">詳しく見る</button>
         <% end %>
-        <% 
+        <%
           $sell_flag = false
           wdays = ["日", "月", "火", "水", "木", "金", "土"]
 
@@ -45,6 +45,14 @@
             end
           when '金'
             if menu.fri
+              $sell_flag = true
+            end
+          when '土'
+            if menu.sat
+              $sell_flag = true
+            end
+          when '日'
+            if menu.sun
               $sell_flag = true
             end
           end

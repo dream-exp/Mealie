@@ -21,7 +21,8 @@ module Mealie
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.web_console.whitelisted_ips = '192.168.0.5'
+    config.web_console.whitelisted_ips = '172.20.10.3'
+
     config.active_record.raise_in_transactional_callbacks = true
     config.time_zone = 'Tokyo'
     config.active_record.schema_format = :ruby

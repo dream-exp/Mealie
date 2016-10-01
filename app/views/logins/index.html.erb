@@ -8,6 +8,10 @@
 <body>
   <p class="skip">ICカードをカードリーダにタッチしてください</p>
 </body>
+<audio id="sound-file" preload="auto">
+  <!-- <source src="http://dream-exp.net/mealieSE2.mp3" type="audio/mp3"> -->
+	<source src="http://dream-exp.net/mealieSE2-4-2.wav" type="audio/wav">
+</audio>
 <%= javascript_include_tag "jquery-1.5.1.min.js" %>
 <%= javascript_include_tag "script" %>
 <%= javascript_include_tag "logins.js" %>
@@ -16,6 +20,9 @@
     setInterval(function(){
         $('p.skip').fadeOut(1000,function(){$(this).fadeIn(1000)});
     },3000);
-});
+  });
+  $('p.skip').click(function(){
+      location.reload();
+  });
 </script>
 </html>
