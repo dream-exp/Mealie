@@ -1,1 +1,0 @@
-exports.three = 'three'

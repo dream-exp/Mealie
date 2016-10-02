@@ -1,3 +1,0 @@
-[submodule "spec/ext/commonjs"]
-	path = spec/ext/commonjs
-	url = https://github.com/kriskowal/commonjs.git

@@ -1,1 +1,0 @@
-exports.two = 2
